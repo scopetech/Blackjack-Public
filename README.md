@@ -1,2 +1,2 @@
 # Blackjack-Public
-Open Blackjack Project Documentation 
+Open [Blackjack Project](https://github.com/scopetech/Blackjack) Documentation 
