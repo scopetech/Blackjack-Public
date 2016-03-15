@@ -1,3 +1,6 @@
+#User acceptance testing
+
+
 _For list of Active UATs see [Active UATs list](https://github.com/scopetech/Blackjack/wiki/UATs#active-uats)_
 
 **UAT** - User acceptance testing, development process stage when client representatives have an access to a newly created product and can provide developers with a feedback. Process of user's feedback gathering described below.
