@@ -1,7 +1,7 @@
 #User acceptance testing
 
 
-_For list of Active UATs see [Active UATs list](https://github.com/scopetech/Blackjack/wiki/UATs#active-uats)_
+_For list of Active UATs see [Active UATs list](https://github.com/scopetech/Blackjack/blob/develop/README.md#active-uats)_
 
 **UAT** - User acceptance testing, development process stage when client representatives have an access to a newly created product and can provide developers with a feedback. Process of user's feedback gathering described below.
 
@@ -10,7 +10,7 @@ _For list of Active UATs see [Active UATs list](https://github.com/scopetech/Bla
 1. UAT Initiator warns all Team members about start of UAT
 2. UAT Initiator creates trello board for UAT tracking
 3. UAT Initiator shares trello board with all stake-holders including developers who will be involved in UAT
-4. UAT Initiator creates new active UAT description block on [UATs list page](https://github.com/scopetech/Blackjack/wiki/UATs#active-uats). Use existing UAT description blocks as a template. Be sure to fill
+4. UAT Initiator creates new active UAT description block on [UATs list page](https://github.com/scopetech/Blackjack/wiki/UATs#active-uats). Use existing one of [finished UAT description blocks](https://github.com/scopetech/Blackjack/wiki/Finished-UATs) as a template. Be sure to fill
     1. Start Date
     2. Trello Board - link to Trello Board
     3. Current Blackjack contact person(s) - set Team Lead by default. During UAT Blackjack will dedicated responsible persons internally and will update value of this field. Only person or persons mentioned in this field at the moment should be contacted regarding particular UAT
@@ -52,14 +52,14 @@ Current Blackjack contact person monitors Trello Board to pick up cases from the
 
 If case can be resolved on the fly, current Blackjack contact person resolves it and marks or moves trello case accordingly.
 
-If case can't be resolved on the fly, current Blackjack contact person creates GitHub issue with reference to initial Trello case, and marks GitHub issue with **uat** label. Current Blackjack contact person adds reference to GitHub issue to Trello case.
-GitHub issue will be processed under [Active Development Stage](https://github.com/scopetech/Blackjack/wiki/Issue-Tracking#active-development-stages) rules. Current Blackjack contact person responsible of updating Trello case with a results of GitHub issue processing
+If case can't be resolved on the fly, current Blackjack contact person creates issue in internal tracking system with reference to initial Trello case, and marks newly created issue with **uat** label. 
+Current Blackjack contact person responsible of updating Trello case with a results of GitHub issue processing
 
 Current Blackjack contact person can be multiple developers.
 
 ## Completion 
 
-Responsible person, moves corresponding UAT description block from [Active UATs list](https://github.com/scopetech/Blackjack/wiki/UATs#active-uats) to [Finished UATs list](https://github.com/scopetech/Blackjack/wiki/UATs#finished-uats) adding UAT end date and removing Current Blackjack contact person field
+Responsible person, moves corresponding UAT description block from [Active UATs list](https://github.com/scopetech/Blackjack/blob/develop/README.md#active-uats) to [Finished UATs list](https://github.com/scopetech/Blackjack/wiki/Finished-UATs) adding UAT end date and removing Current Blackjack contact person field
 
  
   
