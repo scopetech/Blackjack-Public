@@ -10,7 +10,7 @@ _For list of Active UATs see [Active UATs list](https://github.com/scopetech/Bla
 1. UAT Initiator warns all Team members about start of UAT
 2. UAT Initiator creates trello board for UAT tracking
 3. UAT Initiator shares trello board with all stake-holders including developers who will be involved in UAT
-4. UAT Initiator creates new active UAT description block on [UATs list page](https://github.com/scopetech/Blackjack/wiki/UATs#active-uats). Use existing one of [finished UAT description blocks](https://github.com/scopetech/Blackjack/wiki/Finished-UATs) as a template. Be sure to fill
+4. UAT Initiator creates new active UAT description block in [UATs list](https://github.com/scopetech/Blackjack#active-uats). Use existing one of [finished UAT description blocks](https://github.com/scopetech/Blackjack/wiki/Finished-UATs) as a template. Be sure to fill
     1. Start Date
     2. Trello Board - link to Trello Board
     3. Current Blackjack contact person(s) - set Team Lead by default. During UAT Blackjack will dedicated responsible persons internally and will update value of this field. Only person or persons mentioned in this field at the moment should be contacted regarding particular UAT
