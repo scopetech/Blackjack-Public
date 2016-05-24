@@ -1087,7 +1087,7 @@ Policies - Add
 |---|---|---|---|
 | string | Number | yes | Unique policy number |    
 | [DeviceType](DeviceType) | DeviceType | yes | |        
-| [DeliveryMethod](DeliveryMethod) | DeliveryMethod | yes | |
+| [DeliveryMethod](DeliveryMethod) | RequestedDeviceType | yes | |
 | DateTimeOffset? | SignDate | | |
 | DateTimeOffset? | StartDate | | |
 | DateTimeOffset? | ExpirationDate | | |
