@@ -1598,35 +1598,104 @@ Policies OData
 |	SecurityAccepted	|	DateTimeOffset	|		|		|		|		|		|		|		|
 |	Status	|	Self.PolicyStatus	|	FALSE	|		|		|		|		|		|		|
 
-<div style="display:none">
+
 
 PolicyVehicleUnits
 ------------------
 
+...
+
 PolicyVehicleUnits OData
 ------------------
+
+...
 
 Reports
 -------
 
+...
+
 Shares
 ------
+
+...
 
 Translations
 ------------
 
+...
+
 Trips
 -----
+
+...
 
 Users OData
 -----------
 
-VehicleMakeModels
------------------
+...
+
+VehicleMakeModels - Post
+------------------
+| **** | **** |
+|---|---|
+| Description | Report new Make-Model code |
+| URL | ~/api/VehicleMakeModels |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | 204	No Content |
+
+
+**Request Object**
+
+| Type | Name | Required| Description |
+|---|---|---|---|
+| string | DataCode | yes | New Make-Model code  |    
+| int | YearIntroduced | yes | Vehicle introduction year |    
+| int | YearDiscontinued | yes | Year of the end of vehicle manufactoring | 
+| string | MakeDescription | yes | Vehicle make | 
+| string | ModelDescription | yes | Vehicle model | 
+
+
+VehicleMakeModels - Get
+------------------
+Get OBD port location by Make-Model code
+
+
+| **** | **** |
+|---|---|
+| URL | ~/api/VehicleMakeModel |
+| Method | GET |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+
+| Parameters |  |
+|---|---|
+| dataCode | Make-Model code  |
+
+
+**Response Object **
+
+| Type | Name | Description |
+|---|---|---|
+| int | ObdPortLocationId | instalation location ID |
+| string | DataCode | New Make-Model code |
+| int | YearIntroduced | Vehicle introduction year |
+| int | YearDiscontinued | Year of the end of vehicle manufactoring  |
+| string | MakeDescription | Vehicle make |
+| string | ModelDescription |Vehicle model |
+
+
+
+
+
 
 Vehicles
 -----------------
-</div>
+
+...
 
 CONFIDENTIAL
 Copyright 2002 by Scope Logistical Solutions (Pty) Ltd
