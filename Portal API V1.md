@@ -1738,8 +1738,3 @@ Vehicles - OData Patch
 
 
 ...
-
-CONFIDENTIAL
-Copyright 2002 by Scope Logistical Solutions (Pty) Ltd
-
-All rights reserved. No part of this publication may be copied, reproduced or transmitted in any formor by anymeans, electronic, mechanical, photocopying, recording, or otherwise, save with written permission from Scope Technologies or in accordance with the provisions of Copyright Act no. 98 of 1978 (as amended).
