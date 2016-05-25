@@ -1637,6 +1637,7 @@ Users OData
 
 VehicleMakeModels - Post
 ------------------
+
 | **** | **** |
 |---|---|
 | Description | Report new Make-Model code |
@@ -1676,7 +1677,7 @@ Get OBD port location by Make-Model code
 | dataCode | Make-Model code  |
 
 
-**Response Object **
+**Response Object**
 
 | Type | Name | Description |
 |---|---|---|
@@ -1692,8 +1693,49 @@ Get OBD port location by Make-Model code
 
 
 
-Vehicles
+Vehicles - OData Patch
 -----------------
+
+| **** | **** |
+|---|---|
+| Description | Update Vehicle data |
+| URL | ~/api/Vehicles |
+| Method | PATCH |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+
+| Parameters |  |
+|---|---|
+| id | Vehicle ID  |
+
+**Request Object**
+
+| Type | Name | Required| Description |
+|---|---|---|---|
+| string | MakeModelCode | no | New Make-Model code  |    
+| int | YearIntroduced | yes | Vehicle introduction year |    
+| int | YearDiscontinued | yes | Year of the end of vehicle manufactoring | 
+| string | MakeDescription | yes | Vehicle make | 
+| string | ModelDescription | yes | Vehicle model | 
+
+
+**Response Object**
+
+| Name | Type | Description |
+|---|---|---|
+| Id | int |  |  |
+| VIN | string | VIN or Insurer specific unique vehicle identifier| 
+| HSN | string | Herstellerschlüsselnummer - germany specific vehicle make/model identifier  |
+| TSN | string | Typschlüsselnummer - germany specific vehicle make/model identifier |
+| MakeModelCode | string | Insurer specific make model code | 
+| LicensePlate | string | | 
+| Color |  string | | 
+| Make |  string | | 
+| Model |  string | | 
+| YearOfInitialRegistration |  int | 
+| MotorType |  string | | 
+
 
 ...
 
