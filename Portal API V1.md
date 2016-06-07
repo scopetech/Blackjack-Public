@@ -1623,10 +1623,9 @@ Vehicles - OData Patch
 | Type | Name | Required| Description |
 |---|---|---|---|
 | string | MakeModelCode | no | New Make-Model code  |    
-| int | YearIntroduced | yes | Vehicle introduction year |    
-| int | YearDiscontinued | yes | Year of the end of vehicle manufactoring | 
-| string | MakeDescription | yes | Vehicle make | 
-| string | ModelDescription | yes | Vehicle model | 
+| int | YearOfInitialRegistration | no | Year of vehicle initial registration | 
+| string | Make | no | Vehicle make | 
+| string | Model | no | Vehicle model | 
 
 
 **Response Object**
