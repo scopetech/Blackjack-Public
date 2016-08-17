@@ -1,16 +1,13 @@
 #User acceptance testing
 
-
-_For list of Active UATs see [Active UATs list](https://github.com/scopetech/Blackjack/blob/develop/README.md#active-uats)_
-
 **UAT** - User acceptance testing, development process stage when client representatives have an access to a newly created product and can provide developers with a feedback. Process of user's feedback gathering described below.
 
 ## Inception
 
-1. UAT Initiator warns all Team members about start of UAT
+1. UAT Initiator, normally development team member, warns all Team members about start of UAT
 2. UAT Initiator creates trello board for UAT tracking
 3. UAT Initiator shares trello board with all stake-holders including developers who will be involved in UAT
-4. UAT Initiator creates new active UAT description block in [UATs list](https://github.com/scopetech/Blackjack#active-uats). Use existing one of [finished UAT description blocks](https://github.com/scopetech/Blackjack/wiki/Finished-UATs) as a template. Be sure to fill
+4. UAT Initiator places new active UAT board link to project's readme. in [UATs list](https://github.com/scopetech/Blackjack). Use existing one of [finished UAT description blocks](https://github.com/scopetech/Blackjack/wiki/Finished-UATs) as a template. Be sure to fill
     1. Start Date
     2. Trello Board - link to Trello Board
     3. Current Blackjack contact person(s) - set Team Lead by default. During UAT Blackjack will dedicated responsible persons internally and will update value of this field. Only person or persons mentioned in this field at the moment should be contacted regarding particular UAT
@@ -59,7 +56,7 @@ Current Blackjack contact person can be multiple developers.
 
 ## Completion 
 
-Responsible person, moves corresponding UAT description block from [Active UATs list](https://github.com/scopetech/Blackjack/blob/develop/README.md#active-uats) to [Finished UATs list](https://github.com/scopetech/Blackjack/wiki/Finished-UATs) adding UAT end date and removing Current Blackjack contact person field
+Responsible person, removes corresponding UAT board link from project's readme. And creates finished UAT description block in [Finished UATs list](https://github.com/scopetech/Blackjack/wiki/Finished-UATs) using existing finished UAT description block as a template.
 
  
   
