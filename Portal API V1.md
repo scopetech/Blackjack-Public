@@ -1479,6 +1479,26 @@ Policies - Terminate
 |---|---|---|---|
 | policyNumber | string | yes | policy to transfer unit from |
 
+
+Policies - Revert Termination
+------------------
+
+| **** | **** |
+|---|---|
+| Description | Revert policy to state before termination. Available after termination only and next Portal sync with TOMS. Unit must still reside with the customer. |
+| URL | ~/api/Policies/Terminate/Revert |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP Status Code |
+
+Request Parameters
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| policyNumber | string | yes | Terminated policy |
+
+
 Policies OData
 --------------
 | **** | **** |
