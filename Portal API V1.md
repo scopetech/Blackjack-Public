@@ -1486,6 +1486,8 @@ Policies - Revert Termination
 | **** | **** |
 |---|---|
 | Description | Revert policy to state before termination. Available after termination only and next Portal sync with TOMS. Unit must still reside with the customer. |
+|TOMS Restrictions|1.	Last job must be de-installation</br>2.	Deinstallation must be successful</br>3.	Policy must be previously linked to a unit</br>4.	Policy must not be linked to a unit</br>5.	Unit must be in CRR or PLCH location</br>6.	Unit must not be receipted or dispatched after deinstallation|
+|Tests|1.	Add policy API call in Portal</br>2.	Dispatch in TOMS</br>3.	Terminate API call in Portal</br>4.	Try renew API call in Portal – it will fail!</br>5.	Revert termination (NEW!) API call in Portal</br>6.	Try renew API call in Portal – it will now succeed!|
 | URL | ~/api/Policies/Terminate/Revert |
 | Method | POST |
 | Authorize | Administrator |
@@ -1497,6 +1499,29 @@ Request Parameters
 | Name | Type | Required | Description |
 |---|---|---|---|
 | policyNumber | string | yes | Terminated policy |
+
+
+Policies - Amend
+------------------
+
+| **** | **** |
+|---|---|
+| Description | Update policy details after policy is added or being replaced. Available before dispatch in TOMS only. It is possible to change required device type or delivery method or both. |
+|TOMS Restrictions|1.	Last job must be installation or replacement</br>2.	Last job must not be added to dispatch</br>3.	Policy must not be linked to a unit|
+|Tests|1.	Add policy API call in Portal with OBD device type</br>2.	Try dispatch in TOMS with MHub 846 device type - it will fail!</br>3.	Amend API call in Portal with Mhub 846 device type</br>4.	Try dispatch in TOMS with MHub 846 device type - it will now succeed!|
+| URL | ~/api/Policies/Amend |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP Status Code |
+
+Request Parameters
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| policyNumber | string | yes | Policy to update |
+| deviceType | [DeviceType](#classifiers-enumerations) | no | New required device type |
+| deliveryMethod | [DeliveryMethod](#classifiers-enumerations) | no | New delivery method |
 
 
 Policies OData
