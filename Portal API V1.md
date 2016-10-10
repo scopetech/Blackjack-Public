@@ -1486,7 +1486,7 @@ Policies - Revert Termination
 | **** | **** |
 |---|---|
 | Description | Revert policy to state before termination. Available after termination only and next Portal sync with TOMS. Unit must still reside with the customer. |
-|TOMS Restrictions|1.	Last job must be de-installation</br>2.	Deinstallation must be successful</br>3.	Policy must be previously linked to a unit</br>4.	Policy must not be linked to a unit</br>5.	Unit must be in CRR or PLCH location</br>6.	Unit must not be receipted or dispatched after deinstallation|
+|TOMS Restrictions|1.	Last job must be de-installation</br>2.	Deinstallation must be successful</br>3.	Policy must be previously linked to a unit</br>4.	Policy must not be linked to a unit</br>5.	Unit must be in CRR or PLCH location</br>6.	Unit must not be receipted or dispatched after deinstallation</br>7.	Deinstallation job must be imported after Revert method deployment|
 |Tests|1.	Add policy API call in Portal</br>2.	Dispatch in TOMS</br>3.	Terminate API call in Portal</br>4.	Try renew API call in Portal – it will fail!</br>5.	Revert termination (NEW!) API call in Portal</br>6.	Try renew API call in Portal – it will now succeed!|
 | URL | ~/api/Policies/Terminate/Revert |
 | Method | POST |
