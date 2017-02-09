@@ -1174,6 +1174,57 @@ Policies - Add
 | JSON Array |Shares | Must be ignored by client |
 | JSON Array |UnitReplacements | Must be ignored by client |
 
+Policies - ChangeExpiryDate
+------------------
+| **** | **** |
+|---|---|
+| URL | ~/api/Policies/ChangeExpiryDate |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP status |
+
+**Request Parameters**
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| number | string | yes | Policy for which expiry date is modified |
+
+**Request Object**
+
+| Type | Name | Required| Description |
+|---|---|---|---|
+| DateTimeOffset | Date | yes | Policy expiration date |   
+
+###Response 
+Status Code ( 200 OK or 400 Bad Request)
+
+Policies - ChangeStartDate
+------------------
+| **** | **** |
+|---|---|
+| URL | ~/api/Policies/ChangeStartDate |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP status |
+
+**Request Parameters**
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| number | string | yes | policy for which start date is modified |
+
+**Request Object**
+
+| Type | Name | Required| Description |
+|---|---|---|---|
+| DateTimeOffset | Date | yes | Policy start date |   
+
+###Response 
+Status Code ( 200 OK or 400 Bad Request)
+
+
 Policies - Renew
 ------------------
 | **** | **** |
@@ -1264,6 +1315,31 @@ Policies - Renew
 | JSON Array |PolicyVehicleUnitUsers | Must be ignored by client |
 | JSON Array |Shares | Must be ignored by client |
 | JSON Array |UnitReplacements | Must be ignored by client |
+
+Policies - Reset
+------------------
+| **** | **** |
+|---|---|
+| URL | ~/api/Policies/ChangeStartDate |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP status |
+
+**Request Parameters**
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| number | string | yes | Policy for which PVU will be reset |
+
+**Request Object**
+
+| Type | Name | Required| Description |
+|---|---|---|---|
+| DateTimeOffset | Date | yes | Policy related PVU reset date |   
+
+###Response 
+Status Code ( 200 OK or 400 Bad Request)
 
 Policies - Transfer 
 ------------------
