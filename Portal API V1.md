@@ -1320,7 +1320,7 @@ Policies - Reset
 ------------------
 | **** | **** |
 |---|---|
-| URL | ~/api/Policies/ChangeStartDate |
+| URL | ~/api/Policies/Reset |
 | Method | POST |
 | Authorize | Administrator |
 | Response Content-Type | application/json; charset=utf-8 |
