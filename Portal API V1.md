@@ -7,7 +7,11 @@ To use Portal API properly developers must understand basic concept of OData.
 Check http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v4/ for OData tutorials.
 
 All action names and "verbs" in this document is relevant to client (not server).
- 
+
+**aa**
+
+bbb **kuku** rur
+
 OData Navigation Properties
 -------------
 
