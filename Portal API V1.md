@@ -8,9 +8,6 @@ Check http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-
 
 All action names and "verbs" in this document is relevant to client (not server).
 
-**aa**
-
-bbb **kuku** rur
 
 OData Navigation Properties
 -------------
