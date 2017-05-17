@@ -1072,6 +1072,75 @@ Returns numbers of policies of different types.
 | int | NumberOf846ActivatedAndRegistredPolicies | |
 | int | NumberOfActivatedAndRegistredPolicies | |
 
+Subsctiption - Add Policy With User Registration
+------------------
+| **** | **** |
+|---|---|
+| URL | ~/api/Subscriptions/PolicyAddWithUserRegistration |
+| Method | POST |
+| Authorize | Anonymous |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP Status Code |
+
+**Request Object**
+
+| Type | Name | Required| Description |
+|---|---|---|---|
+| JSON Object | Policy | yes | |    
+| string | Policy.Number | yes | Unique policy number |    
+| [DeviceType](DeviceType) | Policy.DeviceType | yes | |        
+| [DeliveryMethod](DeliveryMethod) | Policy.RequestedDeviceType | yes | |
+| DateTimeOffset? | Policy.SignDate | | |
+| DateTimeOffset? | Policy.StartDate | | |
+| DateTimeOffset? | Policy.ExpirationDate | | |
+| JSON Object | Policy.Customer | | |
+| string | Policy.Customer.Number | yes, if Customer container passed | Unique customer number|
+| string | Policy.Customer.Name | | |      
+| JSON Object | Policy.Customer.Contacts | | |  
+| string | Policy.Customer.Contacts.FirstName | | |  
+| string | Policy.Customer.Contacts.Name | | |  
+| string | Policy.Customer.Contacts.Title | | |  
+| string | Policy.Customer.Contacts.Email | | |  
+| [PersonType](PersonType) | Policy.Customer.Contacts.Type | | |  
+| string | Policy.Customer.Contacts.ZipCode | | |  
+| string | Policy.Customer.Contacts.Country | | |  
+| string | Policy.Customer.Contacts.City | | |  
+| string | Policy.Customer.Contacts.Address | | |  
+| string | Policy.Customer.Contacts.CompanyName | | |  
+| string | Policy.Customer.Contacts.Phone | | |  
+| string | Policy.Customer.Contacts.MobilePhone | | |  
+| JSON Object | Policy.Vehicle | yes | |
+| string | Policy.Vehicle.VIN | yes | |
+| string  | Policy.Vehicle.HSN | | |
+| string | Policy.Vehicle.TSN | | |
+| string | Policy.Vehicle.MakeModelCode | yes | |
+| string | Policy.Vehicle.LicensePlate | | |
+| [VehicleColor](VehicleColor) | Policy.Vehicle.Color | | |
+| string | Policy.Vehicle.Make | | |
+| string | Policy.Vehicle.Model | | |
+| int | Policy.Vehicle.YearOfInitialRegistration | yes | |
+| [MotorType](MotorType) | Policy.Vehicle.MotorType | | |
+| JSON Object | User | yes | |    
+| string | User.UserName | yes | |
+| string | User.Password | yes | |
+| bool | User.AgreementAccepted | yes | |
+| JSON Object | User.ContactPerson | | |
+| string | User.ContactPerson.FirstName | | |
+| string | User.ContactPerson.Name | | |
+| string | User.ContactPerson.Title | | |
+| string | User.ContactPerson.Email | | |
+| [PersonType](PersonType) | User.ContactPerson.Type | | |
+| string | User.ContactPerson.ZipCode | | |
+| string | User.ContactPerson.Country | | |
+| string | User.ContactPerson.City | | |
+| string | User.ContactPerson.Address | | |
+| string | User.ContactPerson.CompanyName | | |
+| string | User.ContactPerson.Phone | | |
+| string | User.ContactPerson.MobilePhone | | |
+| string | User.ContactPerson.ReceiveEmails | | |
+| string | DeviceNumber | yes | |
+
+
 Policies - Add
 ------------------
 | **** | **** |
