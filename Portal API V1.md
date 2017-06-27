@@ -1139,6 +1139,8 @@ Subsctiption - Add Policy With User Registration
 | string | User.ContactPerson.MobilePhone | | |
 | string | User.ContactPerson.ReceiveEmails | | |
 | string | DeviceNumber | yes | |
+| string | DeliveryNumber | | |
+| bool | Receipt | | |
 
 
 Policies - Add
