@@ -1546,7 +1546,53 @@ Empty
 
 <span class="todo">FUTURE CHANGE: Filter response for all Policy controller's Requests</span> 
 
+Policies - ChangeNumber
+------------------
+| **** | **** |
+|---|---|
+| Description | Change policy number |
+| URL | ~/api/Policies/ChangeNumber |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP Status Code |
 
+
+** Request Object **
+
+| Type | Name | Required| Description |
+|---|---|---|---|
+| string | CurrentNumber| yes | Current policy number |    
+| string | NewNumber | yes | New policy number |        
+| bool | ChangeOnlyInPortal | false | Change only in Portal (Default: false) |
+
+** Response Object **
+
+Empty
+
+Policies - ChangeCustomerNumber
+------------------
+| **** | **** |
+|---|---|
+| Description | Change customer number |
+| URL | ~/api/Policies/ChangeCustomerNumber |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP Status Code |
+
+
+** Request Object **
+
+| Type | Name | Required| Description |
+|---|---|---|---|
+| string | CurrentNumber| yes | Current customer number |    
+| string | NewNumber | yes | New customer number |        
+| bool | ChangeOnlyInPortal | false | Change only in Portal (Default: false) |
+
+** Response Object **
+
+Empty
 
 Policies - Terminate
 ------------------
@@ -1728,10 +1774,29 @@ Get OBD port location by Make-Model code
 | string | MakeDescription | Vehicle make |
 | string | ModelDescription |Vehicle model |
 
+Vehicles - ChangeVin
+------------------
+| **** | **** |
+|---|---|
+| Description | Change VIN for Vehicle |
+| URL | ~/api/Vehicles/ChangeVin |
+| Method | POST |
+| Authorize | Administrator |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP Status Code |
 
 
+** Request Object **
 
+| Type | Name | Required| Description |
+|---|---|---|---|
+| string | CurrentNumber| yes | Current VIN number |    
+| string | NewNumber | yes | New VIN number |        
+| bool | ChangeOnlyInPortal | false | Change only in Portal (Default: false) |
 
+** Response Object **
+
+Empty
 
 Vehicles - OData Patch
 -----------------
