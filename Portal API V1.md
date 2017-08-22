@@ -851,7 +851,7 @@ Notifications OData
 -------------------------
 | **** | **** |
 |---|---|
-| URL | ~/odata/LogEntries |
+| URL | ~/odata/Notifications |
 | Available Methods | GET, POST, PUT, PATCH, DELETE |
 | Parameters | OData URI parameters  | 
 | Authorize | Administrator, Insured Person*  | 
@@ -1660,7 +1660,7 @@ Policies OData
 --------------
 | **** | **** |
 |---|---|
-| URL | ~/odata/LogEntries |
+| URL | ~/odata/Policies |
 | Available Methods | GET, PUT, POST, PATCH, DELETE |
 | Parameters | OData URI parameters  | 
 | Authorize | Administrator  | 
