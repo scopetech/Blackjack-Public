@@ -1752,7 +1752,7 @@ Get OBD port location by Make-Model code
 
 | **** | **** |
 |---|---|
-| URL | ~/api/VehicleMakeModel |
+| URL | ~/api/VehicleMakeModels |
 | Method | GET |
 | Authorize | Administrator |
 | Response Content-Type | application/json; charset=utf-8 |
