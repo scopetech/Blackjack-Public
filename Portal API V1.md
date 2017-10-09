@@ -187,7 +187,7 @@ Following classifiers (enumerations) is used by the systems:
     public enum NotificationType
     {
         ContactForm = 1,
-        RegistrationRequest = 2,
+		RegistrationRequest = 2,
         RegistrationCompleted = 3,
         FirstOverdue = 4,
         SecondOverdue = 5,
@@ -206,11 +206,21 @@ Following classifiers (enumerations) is used by the systems:
         ShareInvitation = 18,
         PolicyRenewal = 19,
         UnitTransfer = 20,
-        OutOfProvince = 21,
-        OutOfRegion = 22,
-        OutOfCountry = 23,
+        OutOfArea = 21,
         FirstTripInvitation = 24,
-        ShareAccepted = 25
+        ShareAccepted = 25,
+        RegularServiceDue = 26,
+        DiagnosticTroubleCodeReceived = 27,
+        ServiceBooked = 28,
+        BookingRescheduled = 29,
+        BookingCanceled = 30,
+        BookingReminder = 31,
+        GroupMessage = 32,
+        TrialFinished = 33,
+        TestEmail = 34,
+        TestPushNotification = 35,
+        StageTwoUnitReceived = 36,
+        DeviceStoppedReporting = 37
     }    
 
 <a name="Permissions"></a>
