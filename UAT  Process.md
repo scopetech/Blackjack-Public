@@ -17,7 +17,7 @@ Each list represents particular processing state of the card.
 
 There are two types of list organization: simple and advanced. Simple is primarelly for question-answer type of communication between Scope Technology developers and external developers trying to utilize portal API. Advanced caters for proper UAT with bug reporting and feature requests
 
-# Simple
+### Simple
 
 | List Name | Description | Who insert? |  Who monitor? | Card pick-up |
 |---|---|---|---|---|
@@ -26,7 +26,7 @@ There are two types of list organization: simple and advanced. Simple is primare
 | **Processed** | Card content is resolved | Developer | Developer |  Processing result is satisfactory, card goes to  **Closed**. Processing result are not satisfactory, clarification comment is added to card, card goes to **Start**.  |
 | **Closed** | Card content is resolved and verified | Client Representative | Nobody |   |
 
-# Advanced 
+### Advanced 
 
 | List Name | Description | Who insert? |  Who monitor? | Card pick-up |
 |---|---|---|---|---|
