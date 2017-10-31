@@ -15,6 +15,19 @@ Trello Board consist of lists and cards. Cards can be marked with label and plac
 
 Each list represents particular processing state of the card.
 
+There are two types of list organization: simple and advanced. Simple is primarelly for question-answer type of communication between Scope Technology developers and external developers trying to utilize portal API. Advanced caters for proper UAT with bug reporting and feature requests
+
+# Simple
+
+| List Name | Description | Who insert? |  Who monitor? | Card pick-up |
+|---|---|---|---|---|
+| **Start** | Card is just created or card is returned from **Processed** because card processing result is unsatisfactory | Client Representative | Developer | Developer review card. If developers see that he or she is capable to assist with this card he or she places card into **In Progress** and starts to process card content |
+| **In Progress** | Card is actively processed by Developer  | Developer | Developer | Card content is resolved, card goes to **Processed**. Developer who was processing card is not capable to process it further, card goes to **Start**, appropriate comments and labels must be added and or removed |
+| **Processed** | Card content is resolved | Developer | Developer |  Processing result is satisfactory, card goes to  **Closed**. Processing result are not satisfactory, clarification comment is added to card, card goes to **Start**.  |
+| **Closed** | Card content is resolved and verified | Client Representative | Nobody |   |
+
+# Advanced 
+
 | List Name | Description | Who insert? |  Who monitor? | Card pick-up |
 |---|---|---|---|---|
 | **Start** | Card is just created or card is returned from **Delivered** because card processing result is unsatisfactory | Client Representative | Developer | Developer review card. If developers see that he or she is capable to assist with this card he or she places card into **In Progress** and starts to process card content |
