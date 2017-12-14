@@ -1832,7 +1832,7 @@ Vehicles - OData Patch
 | int | YearOfInitialRegistration | no | Year of vehicle initial registration | 
 | string | Make | no | Vehicle make | 
 | string | Model | no | Vehicle model | 
-
+| string | LicensePlate | no |  |
 
 **Response Object**
 
