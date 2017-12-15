@@ -1724,7 +1724,61 @@ Translations
 Trips
 -----
 
-...
+| **** | **** |
+|---|---|
+| Description | Get list of trips of an insured person |
+| URL | ~/api/Trips |
+| Method | GET |
+| Authorize | Insured Person |
+| Response Content-Type | application/json; charset=utf-8 |
+
+**Request Parameters**
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| pvu | int | yes | PolicyVehicleUnit ID |
+| beginDate | DateTimeOffset| yes  | Filter date start |
+| endDate| DateTimeOffset | yes |  Filter date end |
+| route | bool | no |  Include vehicle positions |
+| pageIndex | int | no | Page index for paging |
+| pageSize | int | no |  Page size for paging |
+
+**Response Object**
+
+| Type | Name | Description |
+|---|---|---|
+|  int | Count | Total count of trips |
+|  bool | HasMoreResults |  Represents if page is last or not |
+|  List of [Trip Descriptions](#TripDescription) | Data |  |
+
+<a name="TripDescription"></a>
+**Trip Description**
+
+| Type | Name | Description |
+|---|---|---|
+| int | Id | |
+| string | StartLocation |  |
+| List of decimals | StartPosition |  |
+| DateTime | StartLocalTimestamp |  |
+| string | EndLocation |  |
+| List of decimals | EndPosition |  |
+| DateTime | EndLocalTimestamp |  |
+| decimal | Distance |  |
+| int | MaxSpeed |  |
+| int | NumberOfExceptions |  |
+| int | NumberOfDriverBehaviourExceptions |  |
+| bool | IsBusiness |  |
+| List of [Trip Event descriptions](#TripEventDescription) | TripEvent |  |
+
+<a name="TripEventDescription"></a>
+**Trip Event Description**
+
+| Type | Name | Description |
+|---|---|---|
+| List of decimals | P | Latitude and longitude |
+| DateTime | T | Event timestamp |
+| int | E | Event type identifier |
+
 
 Users OData
 -----------
