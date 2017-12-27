@@ -397,6 +397,22 @@ Account - Register with Share
 ###Response 
 Integer - PolicyVehicleUnit ID 
 
+Account - Register with Email
+-------
+| **** | **** |
+|---|---|
+| Description | Register Insured Person with email |
+| URL | ~/api/Account/RegisterWithEmail |
+| Method | POST |
+| Authorize | Administrator | 
+
+###Request Payload Object Properties   
+
+| Property | Type| Required| Description |
+|---|---|---|---|
+| Email | string | yes | |
+| PolicyNumber | string | yes | |
+
  
 Get Accidents Reports in PDF 
 ---------
