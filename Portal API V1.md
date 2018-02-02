@@ -324,7 +324,8 @@ Some of classifiers with localized descriptions can be retrieved via API in a fo
 
 Following classifiers with localized descriptions can be retrieved via API:
 
-###MotorTypes
+### MotorTypes
+
 | **** | **** |
 |---|---|
 | Description | Returns MotorTypes |
@@ -332,7 +333,8 @@ Following classifiers with localized descriptions can be retrieved via API:
 | Method | GET |
 | Authorize | no authorization |
 
-###Colors
+### Colors
+
 | **** | **** |
 |---|---|
 | Description | Returns vehicle colors|
@@ -340,7 +342,8 @@ Following classifiers with localized descriptions can be retrieved via API:
 | Method | GET |
 | Authorize | no authorization |
 
-###NotificationTypes
+### NotificationTypes
+
 | **** | **** |
 |---|---|
 | Description | Returns Notification Types|
@@ -350,13 +353,14 @@ Following classifiers with localized descriptions can be retrieved via API:
 
 Account - Change Password
 -------
+
 | **** | **** |
 |---|---|
 | URL | ~/api/Account/ChangePassword |
 | Method | Post |
 | Authorize | Administrator, User  | 
 
-###Request Payload Sample:
+### Request Payload Sample:
 
     {
     "OldPassword":"0!dP@ssw0rd", //required
@@ -369,6 +373,7 @@ Status Code ( 200 OK or 500 Internal Server Error)
 
 Account - Register with Policy
 -------
+
 | **** | **** |
 |---|---|
 | Description | Register Insured Person with customer/policy number and unit number|
@@ -376,7 +381,7 @@ Account - Register with Policy
 | Method | POST |
 | Authorize | Anonymous | 
     
-###Request Payload Object Properties   
+### Request Payload Object Properties   
 
 | Property | Type| Required| Description |
 |---|---|---|---|
@@ -386,7 +391,7 @@ Account - Register with Policy
 | SerialNumber| string | yes | |
 | AgreementAccepted| bool | yes | |  
 
-###Response 
+### Response 
 Integer - PolicyVehicleUnit ID 
 
 Account - Register with Share
@@ -398,7 +403,7 @@ Account - Register with Share
 | Method | POST |
 | Authorize | Anonymous | 
 
-###Request Payload Object Properties   
+### Request Payload Object Properties   
 
 | Property | Type| Required| Description |
 |---|---|---|---|
@@ -407,7 +412,7 @@ Account - Register with Share
 | Password | string | yes | |
 | AgreementAccepted| bool | yes | | 
 
-###Response 
+### Response 
 Integer - PolicyVehicleUnit ID 
 
 Account - Register with Email
@@ -419,7 +424,7 @@ Account - Register with Email
 | Method | POST |
 | Authorize | Administrator | 
 
-###Request Payload Object Properties   
+### Request Payload Object Properties   
 
 | Property | Type| Required| Description |
 |---|---|---|---|
@@ -430,7 +435,7 @@ Account - Register with Email
 Get Accidents Reports in PDF 
 ---------
   
-###Request
+### Request
 
 | **** | **** |
 |---|---|
@@ -441,7 +446,7 @@ Get Accidents Reports in PDF
 |---|---|
 | id | ID of accident  |
 
-###Response
+### Response
 
 **Content-Type** text/plain; charset=utf-8
 **Payload** Base64 String containing PDF File
