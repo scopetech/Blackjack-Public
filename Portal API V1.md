@@ -187,22 +187,22 @@ Following classifiers (enumerations) is used by the systems:
     public enum NotificationType
     {
         ContactForm = 1,
-		RegistrationRequest = 2,
+	RegistrationRequest = 2,
         RegistrationCompleted = 3,
         FirstOverdue = 4,
         SecondOverdue = 5,
         ThirdOverdue = 6,
         ResetPassword = 7,
         GeneratedPassword = 8,
-        FirstTripCompletion = 9,
-        PluggedOut = 10,
-        PluggedIn = 11,
-        DifferentVehicleIdentified = 12,
+        FirstTripCompletion = 9, //MLog
+        PluggedOut = 10, //MLog
+        PluggedIn = 11, //MLog
+        DifferentVehicleIdentified = 12, //MLog
         NeverReported = 13,
-        NotReporting = 14,
+        NotReporting = 14, //MLog
         NoImAlive = 15,
-        DeviceToBeReturned = 16,
-        DeviceReturned = 17,
+        DeviceToBeReturned = 16, //MLog
+        DeviceReturned = 17, //MLog
         ShareInvitation = 18,
         PolicyRenewal = 19,
         UnitTransfer = 20,
@@ -220,8 +220,34 @@ Following classifiers (enumerations) is used by the systems:
         TestEmail = 34,
         TestPushNotification = 35,
         StageTwoUnitReceived = 36,
-        DeviceStoppedReporting = 37
+        DeviceStoppedReporting = 37 //MLog
     }    
+
+<a name="MLogNotificationMapping"></a>
+
+                case NotificationTemplateType.FirstTripEndEvent:
+                    return NotificationType.FirstTripCompletion;
+                case NotificationTemplateType.UnitPlugoutEvent:
+                    return NotificationType.PluggedOut;
+                case NotificationTemplateType.UnitPluginEvent:
+                    return NotificationType.PluggedIn;
+                case NotificationTemplateType.VehicleSignatureEvent:
+                    return NotificationType.DifferentVehicleIdentified;
+                case NotificationTemplateType.UnitDispatchedNoTripEnd:
+                    return NotificationType.NotReporting;
+                case NotificationTemplateType.UnitUninstalledNotReceived:
+                    return NotificationType.DeviceToBeReturned;
+                case NotificationTemplateType.UnitReceivedFromCustomer:
+                    return NotificationType.DeviceReturned;
+                case NotificationTemplateType.UnitStoppedReporting:
+                    return NotificationType.DeviceStoppedReporting;
+		//	NOT IMPLEMENTED
+                //	case "NEVER_REPORTED":
+                //		return NotificationType.NeverReported;    
+                //	NOT IMPLEMENTED
+                //	case "NO_IM_ALIVE":
+                //		return NotificationType.NoImAlive;
+
 
 <a name="Permissions"></a>
   
