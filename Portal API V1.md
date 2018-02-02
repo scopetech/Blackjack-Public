@@ -187,7 +187,7 @@ Following classifiers (enumerations) is used by the systems:
     public enum NotificationType
     {
         ContactForm = 1,
-	RegistrationRequest = 2,
+        RegistrationRequest = 2,
         RegistrationCompleted = 3,
         FirstOverdue = 4,
         SecondOverdue = 5,
