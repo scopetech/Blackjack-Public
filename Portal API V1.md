@@ -225,28 +225,15 @@ Following classifiers (enumerations) is used by the systems:
 
 <a name="MLogNotificationMapping"></a>
 
-                case NotificationTemplateType.FirstTripEndEvent:
-                    return NotificationType.FirstTripCompletion;
-                case NotificationTemplateType.UnitPlugoutEvent:
-                    return NotificationType.PluggedOut;
-                case NotificationTemplateType.UnitPluginEvent:
-                    return NotificationType.PluggedIn;
-                case NotificationTemplateType.VehicleSignatureEvent:
-                    return NotificationType.DifferentVehicleIdentified;
-                case NotificationTemplateType.UnitDispatchedNoTripEnd:
-                    return NotificationType.NotReporting;
-                case NotificationTemplateType.UnitUninstalledNotReceived:
-                    return NotificationType.DeviceToBeReturned;
-                case NotificationTemplateType.UnitReceivedFromCustomer:
-                    return NotificationType.DeviceReturned;
-                case NotificationTemplateType.UnitStoppedReporting:
-                    return NotificationType.DeviceStoppedReporting;
-		//	NOT IMPLEMENTED
-                //	case "NEVER_REPORTED":
-                //		return NotificationType.NeverReported;    
-                //	NOT IMPLEMENTED
-                //	case "NO_IM_ALIVE":
-                //		return NotificationType.NoImAlive;
+                case NotificationTemplateType.FirstTripEndEvent -> NotificationType.FirstTripCompletion;
+                case NotificationTemplateType.UnitPlugoutEvent -> NotificationType.PluggedOut;
+                case NotificationTemplateType.UnitPluginEvent -> NotificationType.PluggedIn;
+                case NotificationTemplateType.VehicleSignatureEvent -> NotificationType.DifferentVehicleIdentified;
+                case NotificationTemplateType.UnitDispatchedNoTripEnd -> NotificationType.NotReporting;
+                case NotificationTemplateType.UnitUninstalledNotReceivedNotificationTypeNotificationType  -> otificationType.DeviceToBeReturned;
+                case NotificationTemplateType.UnitReceivedFromCustomer -> NotificationTypeNotificationType.DeviceReturned;
+                case NotificationTemplateType.UnitStoppedReporting -> NotificationType.DeviceStoppedReporting;
+
 
 
 <a name="Permissions"></a>
