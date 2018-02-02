@@ -223,7 +223,7 @@ Following classifiers (enumerations) is used by the systems:
         DeviceStoppedReporting = 37 //MLog
     }    
 
-<a name="MLogNotificationMapping"></a>
+<a name="MLogNotificationMapping">MLog Notification Mapping</a>
 
                 case NotificationTemplateType.FirstTripEndEvent -> NotificationType.FirstTripCompletion;
                 case NotificationTemplateType.UnitPlugoutEvent -> NotificationType.PluggedOut;
