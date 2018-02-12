@@ -669,7 +669,7 @@ InsuredPersons - Stats
 
 | Type | Name | Description |
 |---|---|---|
-|  int | DrivingTime |  |
+|  int | DrivingTime | seconds |
 |  double | DrivingDistance |  |
 |  double | MaxSpeed |  |
 |  int | NumberOfExceptions |  |
