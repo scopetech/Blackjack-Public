@@ -1436,7 +1436,7 @@ Policies - Reset
 ------------------
 | **** | **** |
 |---|---|
-| URL | ~/api/Policies/Reset |
+| URL | ~/api/Policies/Reset/{number} |
 | Method | POST |
 | Authorize | Administrator |
 | Response Content-Type | application/json; charset=utf-8 |
