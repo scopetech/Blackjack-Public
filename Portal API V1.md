@@ -371,6 +371,24 @@ Account - Change Password
 ###Response 
 Status Code ( 200 OK or 500 Internal Server Error)
 
+Account - Change UserName
+-------
+
+| **** | **** |
+|---|---|
+| URL | ~/api/Account/{oldName}/ChangePassword |
+| Method | Post |
+| Authorize | Administrator, User, Insured Person  | 
+
+### Request Payload Object Properties   
+
+| Property | Type| Required| Description |
+|---|---|---|---|
+| newName | string | yes | |
+
+###Response 
+Status Code ( 204 NoContent or 404 NotFound)
+
 Account - Register with Policy
 -------
 
