@@ -726,7 +726,49 @@ InsuredPersons - Events
 | Description | Get driver behavior events |
 | URL | ~/api/InsuredPersons/Events |
 | Method | GET |
-| Authorize | Insured Person |
+| Authorize | Administrator, Insured Person |
+| Response Content-Type | application/json; charset=utf-8 |
+
+**Request Parameters**
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| pvu | int | yes | PolicyVehicleUnit ID |
+| beginDate | DateTimeOffset| yes  | Filter date start |
+| endDate| DateTimeOffset | yes |  Filter date end |
+
+Paging works only if both pageIndex and pageSize is defined.
+
+**Response Object**
+
+| Type | Name | Description |
+|---|---|---|
+|  int | Count | Total count of events |
+|  bool | HasMoreResults |  Represents if page is last or not |
+|  List of [Event Descriptions](#EventDescription) | Data |  |
+
+<a name="EventDescription"></a>
+**Event Description**
+
+| Type | Name | Description |
+|---|---|---|
+|  Int64 | Id | Event ID |
+|  string | UnitId | Unit ID | 
+|  int | EventTypeId | Event Type ID |  
+|  string | EventTypeDescription | |
+|  DateTime | LocalTimestamp | |
+|  List<decimal?> | Position | Longitude and Latitude in Decimal degrees (DD) format |
+|  int | Speed | | 
+|  string | UnitOfDistanceCode | Measurement of speed e.g: "km" |
+
+InsuredPersons - EventsForDateRange
+--------------
+| **** | **** |
+|---|---|
+| Description | Get paged data of the vehicle events filtered by date range |
+| URL | ~/api/InsuredPersons/EventsForDateRange |
+| Method | GET |
+| Authorize | Administrator, Insured Person |
 | Response Content-Type | application/json; charset=utf-8 |
 
 **Request Parameters**
@@ -1763,7 +1805,7 @@ Trips
 | Description | Get list of trips of an insured person |
 | URL | ~/api/Trips |
 | Method | GET |
-| Authorize | Insured Person |
+| Authorize | Administrator, Insured Person |
 | Response Content-Type | application/json; charset=utf-8 |
 
 **Request Parameters**
