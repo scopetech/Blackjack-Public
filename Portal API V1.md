@@ -1853,8 +1853,8 @@ Trips
 | beginDate | DateTimeOffset| yes  | Filter date start |
 | endDate| DateTimeOffset | yes |  Filter date end |
 | route | bool | no |  Include vehicle positions |
-| pageIndex | int | no | Page index for paging |
-| pageSize | int | no |  Page size for paging |
+| pageIndex | int | yes | Page index for paging |
+| pageSize | int | yes |  Page size for paging |
 
 **Response Object**
 
