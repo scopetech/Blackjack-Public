@@ -1774,7 +1774,7 @@ Policies OData
 | Authorize | Administrator  | 
 | Max Expansion Depth | 2 | 
 
-###Policy Object
+### Policy Object
 
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
@@ -1794,10 +1794,25 @@ Policies OData
 
 
 
-PolicyVehicleUnits
+PolicyVehicleUnits - RevokeAccess
 ------------------
+| **** | **** |
+|---|---|
+| Description | Revokes access to vehicle for specific user |
+| URL | ~/api/PolicyVehicleUnits/RevokeAccess |
+| Method | POST |
+| Authorize | Administrator, InsuredRole |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | HTTP Status Code |
 
-...
+**Request Parameters**
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| pvu | int | yes | Subscription to remove |
+| userName | string | yes | User whose access should be revoked |
+
+
 
 PolicyVehicleUnits OData
 ------------------
