@@ -160,8 +160,12 @@ Following classifiers (enumerations) is used by the systems:
     /// </summary>
     public enum DeviceType
     {
+        Unknown = 0,
         MHubObd = 1, // connects to OBD port
-        MHub846 = 2, // connects to Battery
+        MHubBattery = 2, // connects to Battery
+        Soft = 3, // Software typically installed on Mobile phone, acting as an MHub
+		ThirdParty = 4,
+		Virtual = 5 // Trips recorded on multiple devices
     }
 
 <a name="MotorType"></a>
