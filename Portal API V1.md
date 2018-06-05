@@ -224,7 +224,14 @@ Following classifiers (enumerations) is used by the systems:
         TestEmail = 34,
         TestPushNotification = 35,
         StageTwoUnitReceived = 36,
-        DeviceStoppedReporting = 37 //MLog
+        DeviceStoppedReporting = 37, //MLog
+	TokenEmail = 38,
+	GamificationSummaryForPeriod = 39,
+        RuleInstanceNotification = 40,
+        RuleInstanceUpdateCommandNotification = 41,
+        HeritageWelcome = 42,
+        HeritageMidTrial = 43,
+        HeritageEndTrial = 44,
     }    
 
 <a name="MLogNotificationMapping">MLog Notification Mapping</a>
@@ -2018,4 +2025,167 @@ Vehicles - OData Patch
 | MotorType |  string | | 
 
 
-...
+UserPlaces - Get
+------------------
+Gets a list of all user-created places. Only places accessible by current user are returned.
+
+| **** | **** |
+|---|---|
+| URL | ~/api/UserPlaces |
+| Method | GET |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+| Response Codes | 200 - OK |
+
+**Response Object** - object array of UserPlaceItem
+
+| Type | Name | Description |
+|---|---|---|
+| int | Id | User place ID |
+| string | Name | Name of the user place |
+| string | Address | Address of the user place |
+| string | Geometry | GeoJSON object * |
+
+Note [GeoJSON object](https://tools.ietf.org/html/rfc7946#section-3) type is limited to Polygon. Coordinates are in WGS 84 (also known as EPSG:4326) coordinate reference system.
+
+```
+Example of UserPlaceItem
+{
+        "Id": 111,
+        "Name": "Office",
+        "Address": "Some address",
+        "Geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        24.131401269074512,
+                        56.996303940202829
+                    ],
+                    [
+                        24.134010187009356,
+                        56.996179586042864
+                    ],
+		    ...
+		    [
+                        34.906665235400467,
+                        32.529426377258829
+                    ]
+                ]
+            ]
+        }
+    }
+```
+
+UserPlaces - Get by id
+------------------
+Gets user-created place by Id. Only places accessible by current user are available.
+
+| **** | **** |
+|---|---|
+| URL | ~/api/UserPlaces/{id} |
+| Method | GET |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+| Response Codes | 200 - OK, 404 - Not Found |
+
+| Parameters |  |
+|---|---|
+| id | User Place ID  |
+
+**Response Object** - object UserPlaceItem
+
+| Type | Name | Description |
+|---|---|---|
+| int | Id | User place ID |
+| string | Name | Name of the user place |
+| string | Address | Address of the user place |
+| string | Geometry | GeoJSON object * |
+
+Note [GeoJSON object](https://tools.ietf.org/html/rfc7946#section-3) type is limited to Polygon. Coordinates are in WGS 84 (also known as EPSG:4326) coordinate reference system.
+
+UserPlaces - POST
+------------------
+Creates a user place
+
+| **** | **** |
+|---|---|
+| URL | ~/api/UserPlaces |
+| Method | POST |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object with created user place. |
+| Response Codes | 200 - OK, 400 - Bad Request |
+
+**Request Object**
+
+| Type | Name | Description |
+|---|---|---|
+| string | Name | Name of the user place |
+| string | Address | Address of the user place |
+| string | Geometry | Json-formatted Geometry object  |
+
+**Response Object** - object UserPlaceItem
+
+| Type | Name | Description |
+|---|---|---|
+| int | Id | User place ID |
+| string | Name | Name of the user place |
+| string | Address | Address of the user place |
+| string | Geometry | Json-formatted Geometry object  |
+
+
+UserPlaces - PATCH
+------------------
+Updates the properties of a user-created place
+
+| **** | **** |
+|---|---|
+| URL | ~/api/UserPlaces/{id} |
+| Method | PATCH |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+| Response Codes | 200 - OK, 404 - Not Found, 400 - Bad Request |
+
+| Parameters |  |
+|---|---|
+| id | User Place ID  |
+
+**Request Object**
+
+| Type | Name | Description |
+|---|---|---|
+| string | Name | Name of the user place |
+| string | Address | Address of the user place |
+| string | Geometry | Json-formatted Geometry object  |
+
+**Response Object** - object UserPlaceItem
+
+| Type | Name | Description |
+|---|---|---|
+| int | Id | User place ID |
+| string | Name | Name of the user place |
+| string | Address | Address of the user place |
+| string | Geometry | Json-formatted Geometry object  |
+
+UserPlaces - DELETE
+------------------
+Deletes a user-created place
+
+| **** | **** |
+|---|---|
+| URL | ~/api/UserPlaces/{id} |
+| Method | DELETE |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response |  |
+| Response Codes | 204 - Deleted, 404 - Not Found |
+
+| Parameters |  |
+|---|---|
+| id | User Place ID  |
+
+
