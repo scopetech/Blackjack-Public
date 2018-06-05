@@ -122,7 +122,7 @@ Further requests which require caller to be authenticated must be completed with
 
 Classifiers (Enumerations)
 -----------
-All classifiers in the system is declared inside **Blackjack.Models.Classifiers** namespace, use it for OData requests.  
+All classifiers in the system is declared inside **Blackjack.Shared.Classifiers** namespace, use it for OData requests.  
 Following classifiers (enumerations) is used by the systems:
 
 <a name="DateSpanType"></a>
@@ -138,7 +138,8 @@ Following classifiers (enumerations) is used by the systems:
         Quarter = 4,
         HalfYear = 5,
         Year = 6,
-        Custom = 7
+        Custom = 7,
+        LastDays = 8
     }
 
 <a name="DeliveryMethod"></a>
@@ -164,8 +165,8 @@ Following classifiers (enumerations) is used by the systems:
         MHubObd = 1, // connects to OBD port
         MHubBattery = 2, // connects to Battery
         Soft = 3, // Software typically installed on Mobile phone, acting as an MHub
-		ThirdParty = 4,
-		Virtual = 5 // Trips recorded on multiple devices
+        ThirdParty = 4,
+        Virtual = 5 // Trips recorded on multiple devices
     }
 
 <a name="MotorType"></a>
@@ -317,6 +318,21 @@ Following classifiers (enumerations) is used by the systems:
         Red = 0xFF0000,     // decimal value = 16711680
         Maroon = 0x800000,  // decimal value = 8388608
         Yellow = 0xFFFF00   // decimal value = 16776960
+    }
+
+<a name="RuleType"></a>  
+  
+    /// <summary>
+    /// Types of rule for Location-based services
+    /// </summary>
+     public enum RuleType
+    {
+        PlaceEntry = 1,
+        PlaceExit = 2,
+        DoNotEnterPlace = 3,
+        DoNotExitPlace = 4, // aka "Must be in given time" in Mobile UI
+        MustLeaveByTimeRange = 5, // aka "Must leave in given time" in Mobile UI
+        ArriveInGivenTime = 6 // aka "Reach another POI in given time" in Mobile UI
     }
     
 Some of classifiers with localized descriptions can be retrieved via API in a following format:
@@ -2189,3 +2205,52 @@ Deletes a user-created place
 | id | User Place ID  |
 
 
+RuleInstances - GET
+------------------
+Gets the list of rules, optionally filtered by ruleTypeId. If policyVehicleUnitId is not specified, returns all RuleInstances that the logged on user has created. If policyVehicleUnitId is specified, returns all RuleInstances for that PolicyVehicleUnit, regardless which user created them.
+
+| **** | **** |
+|---|---|
+| URL |~/api/RuleInstances?ruleTypeId={ruleTypeId}&policyVehicleUnitId={policyVehicleUnitId} |
+| Method | GET |
+| Authorize | Administrator, User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+| Response Codes | 200 - Ok |
+
+| Parameters |  |
+|---|---|
+| ruleTypeId | (optional) rule type name from RuleType enumeration f.e. PlaceEntry |
+| policyVehicleUnitId | (optional) returns all rule instances created for that policyVehicleUnitId, regardless which user created them |
+
+
+**Response Object** - array of RuleInstanceItem
+
+| Type | Name | Description |
+|---|---|---|
+| int | Id | RuleInstance ID |
+| int | PolicyVehicleUnitId | PVU Id |
+| string | RuleType | Type of the rule |
+| string | Params | Rule definition /* depends on RuleType */ |
+| bool | IsPushRequired | If push notification to end-user device is requred  |
+| bool | IsEmailRequired | If email notification to end-user is requred  |
+| bool | IsRepeating | If email notification to end-user is requred  |
+| bool | IsEnabled | If email notification to end-user is requred  |
+
+```
+Example of RuleInstanceItem
+
+ {
+        "Id": 123,
+        "PolicyVehicleUnitId": 45678,
+        "RuleType": "PlaceEntry",
+        "Params": {
+            "placeId": 274,
+            "cooldown": 900
+        },
+        "IsPushRequired": true,
+        "IsEmailRequired": true,
+        "IsRepeating": false,
+        "IsEnabled": true
+    },
+```
