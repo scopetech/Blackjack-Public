@@ -2230,8 +2230,8 @@ Gets the list of rules, optionally filtered by ruleTypeId. If policyVehicleUnitI
 |---|---|---|
 | int | Id | RuleInstance ID |
 | int | PolicyVehicleUnitId | PVU Id |
-| string | RuleType | Type of the rule |
-| string | Params | Rule definition /* depends on RuleType */ |
+| [RuleType](RuleType) | RuleType | Type of the rule f.e. "PlaceEntry" |
+| string | Params | Rule definition parameters that depends on RuleType  |
 | bool | IsPushRequired | If push notification to end-user device is requred  |
 | bool | IsEmailRequired | If email notification to end-user is requred  |
 | bool | IsRepeating | If email notification to end-user is requred  |
@@ -2254,3 +2254,102 @@ Example of RuleInstanceItem
         "IsEnabled": true
     },
 ```
+
+RuleInstances - POST
+------------------
+Creates a rule instance of the specified rule type
+
+| **** | **** |
+|---|---|
+| URL | ~/api/RuleInstances |
+| Method | POST |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object with created rule instance |
+| Response Codes | 200 - OK, 400 - Bad Request, 404 - Subscription Not Found |
+
+**Request Object** - object RuleInstance
+
+| Type | Name | Description |
+|---|---|---|
+| int | PolicyVehicleUnitId | PVU Id |
+| [RuleType](RuleType) | RuleType | Type of the rule f.e. "PlaceEntry" |
+| string | Params | Rule definition parameters that depends on RuleType |
+| bool | IsPushRequired | If push notification to end-user device is requred  |
+| bool | IsEmailRequired | If email notification to end-user is requred  |
+| bool | IsRepeating | If email notification to end-user is requred  |
+| bool | IsEnabled | If email notification to end-user is requred  |
+
+Note: "params" attribute is an JSON object whose structure depends on rule type. Object structure for rule types of all use cases is given below.
+
+```
+Parameters example for RuleTypes: PlaceEntry = 1, PlaceExit = 2, DoNotEnterPlace = 3, DoNotExitPlace = 4
+
+"Params": {
+	"placeId": 17, /* ID of the user place to monitor */
+	"timeProfile": { /* optional, specifies when rule is active. */
+		"entries": [
+			{
+				"dayOfWeekUtc": 4, // Mon=1, Tue=2, etc.
+				"startTimeUtc": 48600, // Block start, in seconds since midnight (UTC)
+				"endTimeUtc": 49500 // Block end, in seconds since midnight (UTC)
+			},
+			{
+				"dayOfWeekUtc": 3, // Mon=1, Tue=2, etc.
+				"startTimeUtc": 0, // Seconds since midnight
+				"endTimeUtc": 900 // Seconds since midnight
+			}
+		]
+	},
+	"cooldown": 900 // optional, time period in seconds during which the rule is not retriggered
+}
+
+Parameters example for RuleTypes: MustLeaveByTimeRange = 5
+"Params": {
+{
+	"placeId": 17, /* place to monitor */
+	"interval": 60, /* periodic interval. Aligned (relative) to seconds since midnight UTC. */
+	"timeProfile": { /* optional, specifies when rule is active. */
+		"entries": [
+			{
+				"dayOfWeekUtc": 3, // Mon=1, Tue=2, etc.
+				"startTimeUtc": 0, // Seconds since midnight
+				"endTimeUtc": 900 // Seconds since midnight
+			}
+		]
+	},
+	"cooldown": 900 // time period in seconds during which the rule is not retriggered
+}
+
+Parameters example for RuleTypes: ArriveInGivenTime = 6
+
+"Params": {
+	"departurePlaceId": 17 /* user place id to exit to begin arrival countdown */
+	"interval": 1800 /* number of seconds after which the vehicle should be in the destination place */
+	"destinationPlaceId": 18 /* place where the vehicle should be after given time */
+	"timeProfile": { /* optional, specifies when rule is active. */
+		"entries": [
+			{
+				"dayOfWeekUtc": 3, // Mon=1, Tue=2, etc.
+				"startTimeUtc": 28800, // Seconds since midnight
+				"endTimeUtc": 61200 // Seconds since midnight
+			}
+		]
+	},
+	"cooldown": 900 // time period in seconds during which the rule is not retriggered
+}
+```
+	
+**Response Object** - object RuleInstanceResponse
+
+| Type | Name | Description |
+|---|---|---|
+| int | Id | Rule Id |
+| int | PolicyVehicleUnitId | PVU Id |
+| [RuleType](RuleType) | RuleType | Type of the rule f.e. "PlaceEntry" |
+| string | Params | Rule definition parameters that depends on RuleType |
+| bool | IsPushRequired | If push notification to end-user device is requred  |
+| bool | IsEmailRequired | If email notification to end-user is requred  |
+| bool | IsRepeating | If email notification to end-user is requred  |
+| bool | IsEnabled | If email notification to end-user is requred  |
+
