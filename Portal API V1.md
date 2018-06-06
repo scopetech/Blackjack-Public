@@ -87,8 +87,13 @@ Table of Contents
   - [UserPlaces - POST](#userplaces---post)
   - [UserPlaces - PATCH](#userplaces---patch)
   - [UserPlaces - DELETE](#userplaces---delete)
+  - [RuleInstances - GET by id](#ruleinstances---get-by-id)
   - [RuleInstances - GET](#ruleinstances---get)
   - [RuleInstances - POST](#ruleinstances---post)
+  - [RuleInstances - PATCH](#ruleinstances---patch)
+  - [RuleInstances - DELETE](#ruleinstances---delete)
+  - [RuleInstances - GET Activations](#ruleinstances---get-activations)
+  - [RuleInstances - MarkActivated](#ruleinstances---markactivated)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -2631,6 +2636,7 @@ Marks the specified rule as activated on the specified device
 | id | Rule instance id (int)
 | deviceId | Mobile device id (string)
 
-**Response Object** - 
+**Response Object**
+
 Return RuleInstanceActivation item (see GET Activations)
 
