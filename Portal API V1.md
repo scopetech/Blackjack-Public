@@ -1,3 +1,86 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Portal API](#portal-api)
+  - [OData Navigation Properties](#odata-navigation-properties)
+  - [PolicyVehicleUnit Concept](#policyvehicleunit-concept)
+  - [Internalization](#internalization)
+  - [Token](#token)
+  - [Classifiers (Enumerations)](#classifiers-enumerations)
+    - [MotorTypes](#motortypes)
+    - [Colors](#colors)
+    - [NotificationTypes](#notificationtypes)
+    - [DistanceUnits](#distanceunits)
+    - [ServiceJobTypes](#servicejobtypes)
+    - [ServiceJobStatuses](#servicejobstatuses)
+  - [Account - Change Password](#account---change-password)
+  - [Account - Change UserName](#account---change-username)
+  - [Account - Register with Policy](#account---register-with-policy)
+  - [Account - Register with Share](#account---register-with-share)
+  - [Account - Register with Email](#account---register-with-email)
+  - [Get Accidents Reports in PDF](#get-accidents-reports-in-pdf)
+  - [Accidents OData](#accidents-odata)
+  - [CSV - Policy](#csv---policy)
+  - [CSV - Trip](#csv---trip)
+  - [CSV - Accident](#csv---accident)
+  - [CSV - User](#csv---user)
+  - [CSV - RegisteredUsers](#csv---registeredusers)
+  - [ECall - Send Accident information](#ecall---send-accident-information)
+  - [InsuredPersons - Self](#insuredpersons---self)
+  - [InsuredPersons - Stats](#insuredpersons---stats)
+  - [InsuredPersons - Feedback](#insuredpersons---feedback)
+  - [InsuredPersons - Events](#insuredpersons---events)
+  - [InsuredPersons - EventsForDateRange](#insuredpersons---eventsfordaterange)
+  - [InsuredPersons - Last Known Position](#insuredpersons---last-known-position)
+  - [Log Entries OData](#log-entries-odata)
+  - [Notifications - Active](#notifications---active)
+  - [Notifications - Mark Read](#notifications---mark-read)
+  - [Notifications - Last](#notifications---last)
+  - [Notifications OData](#notifications-odata)
+  - [Password - User Exists](#password---user-exists)
+  - [Password - Send Reset](#password---send-reset)
+  - [Password - Reset](#password---reset)
+  - [Password - Reset with code](#password---reset-with-code)
+  - [Password - Token is valid](#password---token-is-valid)
+  - [Password - Cancel Reset](#password---cancel-reset)
+  - [Places](#places)
+  - [Policies - Admin Stats](#policies---admin-stats)
+  - [Subsctiption - Add Policy With User Registration](#subsctiption---add-policy-with-user-registration)
+  - [Policies - Add](#policies---add)
+  - [Policies - ChangeExpiryDate](#policies---changeexpirydate)
+  - [Policies - ChangeStartDate](#policies---changestartdate)
+  - [Policies - Renew](#policies---renew)
+  - [Policies - Reset](#policies---reset)
+  - [Policies - Transfer](#policies---transfer)
+  - [Policies - Replace](#policies---replace)
+  - [Policies - ChangeNumber](#policies---changenumber)
+  - [Policies - ChangeCustomerNumber](#policies---changecustomernumber)
+  - [Policies - Terminate](#policies---terminate)
+  - [Policies - Revert Termination](#policies---revert-termination)
+  - [Policies - Amend](#policies---amend)
+  - [Policies OData](#policies-odata)
+  - [PolicyVehicleUnits - RevokeAccess](#policyvehicleunits---revokeaccess)
+  - [PolicyVehicleUnits OData](#policyvehicleunits-odata)
+  - [Reports](#reports)
+  - [Shares](#shares)
+  - [Translations](#translations)
+  - [Trips](#trips)
+  - [Users OData](#users-odata)
+  - [VehicleMakeModels - Post](#vehiclemakemodels---post)
+  - [VehicleMakeModels - Get](#vehiclemakemodels---get)
+  - [Vehicles - ChangeVin](#vehicles---changevin)
+  - [Vehicles - OData Patch](#vehicles---odata-patch)
+  - [UserPlaces - Get](#userplaces---get)
+  - [UserPlaces - Get by id](#userplaces---get-by-id)
+  - [UserPlaces - POST](#userplaces---post)
+  - [UserPlaces - PATCH](#userplaces---patch)
+  - [UserPlaces - DELETE](#userplaces---delete)
+  - [RuleInstances - GET](#ruleinstances---get)
+  - [RuleInstances - POST](#ruleinstances---post)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ![Scope Technologies](https://cloud.githubusercontent.com/assets/3167692/9407536/cfc140b0-4812-11e5-96aa-21fa51a0cb0f.png)
 
 Portal API
@@ -83,7 +166,7 @@ Token
 -----
 Access to Portal API is controlled with Bearer Authentication. Client needs to obtain authentication token then add it to each request
 
-### Request
+**Request**
 
 | **** | **** |
 |---|---|
@@ -91,18 +174,18 @@ Access to Portal API is controlled with Bearer Authentication. Client needs to o
 | Method | POST |
 | Content-Type | application/x-www-form-urlencoded  | 
 | Payload | grant_type=password&username=**UserName**&password=**Password**  | 
+| Response Content-Type | application/json; charset=utf-8 |
+| Response Codes | 200 - OK, 400 - Bad Request |
 
 | Parameters |  |
 |---|---|
 | UserName | Username to log in  |
 | Password | Password to log in, ensure sent password is "urlencoded" | 
 
-### Response
-
-**Content-Type** application/json;charset=UTF-8 
-
-**Sample**
-
+```
+Example:
+POST ~/token
+Response for 200 Ok:
     {
     	"access_token": "BHM1jhi==", // This value must be used to authenticate
     	"token_type": "bearer",
@@ -114,6 +197,12 @@ Access to Portal API is controlled with Bearer Authentication. Client needs to o
     	".issued": "Thu, 06 Aug 2015 11:19:05 GMT",
     	".expires": "Thu, 20 Aug 2015 11:19:05 GMT"
     }
+Response for 400 Bad Request:
+	{
+		"error": "invalid_grant",
+		"error_description": "The user name or password is incorrect."
+	}
+```
 
 Further requests which require caller to be authenticated must be completed with access_token value in Authorization header.
 
@@ -407,23 +496,25 @@ Following classifiers with localized descriptions can be retrieved via API:
 
 Account - Change Password
 -------
+Change password of the currently logged in user
 
 | **** | **** |
 |---|---|
 | URL | ~/api/Account/ChangePassword |
 | Method | Post |
 | Authorize | Administrator, User  | 
+| Response Codes | 200 OK or 500 Internal Server Error |
 
-### Request Payload Sample:
+```
+Request Payload Sample:
 
     {
     "OldPassword":"0!dP@ssw0rd", //required
     "newPassword":"NewP@ssw0rd", //required
     "confirmPassword":"NewP@ssw0rd" //required, must be same as "newPassword"
     }
+```
 
-### Response 
-Status Code ( 200 OK or 500 Internal Server Error)
 
 Account - Change UserName
 -------
@@ -433,15 +524,14 @@ Account - Change UserName
 | URL | ~/api/Account/{oldName}/ChangePassword |
 | Method | Post |
 | Authorize | Administrator, User, Insured Person  | 
+| Response Codes | 204 NoContent or 404 NotFound |
 
-### Request Payload Object Properties   
+**Request Payload Properties**
 
 | Property | Type| Required| Description |
 |---|---|---|---|
 | newName | string | yes | |
 
-### Response 
-Status Code ( 204 NoContent or 404 NotFound)
 
 Account - Register with Policy
 -------
@@ -452,19 +542,24 @@ Account - Register with Policy
 | URL | ~/api/Account/RegisterWithPolicy |
 | Method | POST |
 | Authorize | Anonymous | 
+| Response Codes | 400 - Bad Request, 500 - Inccorect data, 200 - Ok |
     
-### Request Payload Object Properties   
+**Request Payload Properties** 
 
 | Property | Type| Required| Description |
 |---|---|---|---|
 | UserName | string | yes | |
 | Password | string | yes | |
-| PolicyOrCustomerNumber | string | yes | |
-| SerialNumber| string | yes | |
-| AgreementAccepted| bool | yes | |  
+| RegistrationPolicyOrCustomerNumber | string | yes | |
+| Criteria | string | yes | |
+| AgreementAccepted | bool | yes | |  
 
-### Response 
-Integer - PolicyVehicleUnit ID 
+**Response Object** 
+
+| Type | Name | Description |
+|---|---|---|
+| int | PolicyVehicleUnitId | Id of the PolicyVehicleUnit object |
+
 
 Account - Register with Share
 -------
@@ -475,7 +570,7 @@ Account - Register with Share
 | Method | POST |
 | Authorize | Anonymous | 
 
-### Request Payload Object Properties   
+**Request Payload Object Properties**
 
 | Property | Type| Required| Description |
 |---|---|---|---|
@@ -484,8 +579,11 @@ Account - Register with Share
 | Password | string | yes | |
 | AgreementAccepted| bool | yes | | 
 
-### Response 
-Integer - PolicyVehicleUnit ID 
+**Response Object** 
+
+| Type | Name | Description |
+|---|---|---|
+| int | PolicyVehicleUnitId | Id of the PolicyVehicleUnit object |
 
 Account - Register with Email
 -------
@@ -496,7 +594,7 @@ Account - Register with Email
 | Method | POST |
 | Authorize | Administrator | 
 
-### Request Payload Object Properties   
+**Request Payload Object Properties**
 
 | Property | Type| Required| Description |
 |---|---|---|---|
@@ -507,7 +605,7 @@ Account - Register with Email
 Get Accidents Reports in PDF 
 ---------
   
-### Request
+**Request**
 
 | **** | **** |
 |---|---|
@@ -518,10 +616,12 @@ Get Accidents Reports in PDF
 |---|---|
 | id | ID of accident  |
 
-### Response
 
-**Content-Type** text/plain; charset=utf-8
-**Payload** Base64 String containing PDF File
+**Response**
+| **** | **** |
+|---|---|
+| Content-Type | text/plain; charset=utf-8 |
+| Payload | Base64 String containing PDF File |
 
 
 Accidents OData
@@ -534,7 +634,7 @@ Accidents OData
 | Authorize | Administrator  | 
 | Max Expansion Depth| 3 | 
 
-### Accident Object
+**Accident Object**
 
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
@@ -558,11 +658,9 @@ Accidents OData
 |	ImpactSeverity	|	String	|	FALSE	|		|	50	|	FALSE	|	TRUE	|		|		|
 |	ImpactMagnitude	|	String	|	FALSE	|		|	50	|	FALSE	|	TRUE	|		|		|
 
-CSV
----
-### Policy
-<span class="todo">FUTURE CHANGE: Pluralize name</span>
-
+CSV - Policy
+---------------
+Export all tenant policies in CSV format
 | **** | **** |
 |---|---|
 | Description | Get CSV file containing all Policies |
@@ -571,15 +669,17 @@ CSV
 | Authorize | Administrator |
 | Response Content-Type | text/csv |
 
-### Trip
-<span class="todo">FUTURE CHANGE: Pluralize name</span>
+
+CSV - Trip
+---------------
+Export filtered trips in CSV format
 
 | **** | **** |
 |---|---|
 | Description | Get CSV file containing filtered set of trips |
 | URL | ~/api/Csv/Trip |
 | Method | GET |
-| Authorize | Administrator |
+| Authorize | Administrator, User |
 | Response Content-Type | text/csv |
 
 **Request Parameters**
@@ -590,18 +690,49 @@ CSV
 | bd | DateTime | Filter start date |
 | ed | DateTime | Filter end date  |
 
-<span class="todo">FUTURE CHANGE: Change parameters names</span> 
 
-### Accident
-<span class="todo">FUTURE CHANGE: Pluralize name</span>
+CSV - Accident
+---------------
+Export accidents in CSV format
 
 | **** | **** |
 |---|---|
-| Description | Get CSV file containing all Accidents |
+| Description | Get CSV file containing all accidents |
 | URL | ~/api/Csv/Accident |
 | Method | GET |
 | Authorize | Administrator |
 | Response Content-Type | text/csv |
+
+CSV - User
+---------------
+Export all tenant users in CSV format
+
+| **** | **** |
+|---|---|
+| Description | Get CSV file containing all users |
+| URL | ~/api/Csv/User |
+| Method | GET |
+| Authorize | Administrator |
+| Response Content-Type | text/csv |
+
+CSV - RegisteredUsers
+---------------
+Export registered users filtered by creation date in CSV format
+
+| **** | **** |
+|---|---|
+| Description | Get CSV file containing registered users filtered by creation date |
+| URL | ~/api/Csv/RegisteredUsers |
+| Method | GET |
+| Authorize | Administrator |
+| Response Content-Type | text/csv |
+
+**Request Parameters**
+
+| Name | Type | Description |
+|---|---|---|
+| bd | DateTime | Filter start date |
+| ed | DateTime | Filter end date  |
 
 
 ECall - Send Accident information
@@ -614,7 +745,7 @@ ECall - Send Accident information
 | Method | POST |
 | Authorize | Administrator | 
 
-### Request Payload Object Properties   
+**Request Payload Object Properties**
 
 | Property | Type| Required| Description |
 |---|---|---|---|
@@ -636,16 +767,9 @@ ECall - Send Accident information
 | MaxGForce | decimal | yes | |
 | PdfReport | byte[] | no | PDF Report will generated if empty field is received |
 
-### Response 
+**Response**
 Integer - PolicyVehicleUnit ID 
 
-Drivers
--------
-<span class="todo">FUTURE CHANGE: Understand why it is needed</span>
-
-ImageBrowser
-------------
-<span class="todo">FUTURE CHANGE: Development postponed, API is not ready yet</span> 
 
 InsuredPersons - Self
 --------------
@@ -657,7 +781,7 @@ InsuredPersons - Self
 | Authorize | Insured Person |
 | Response Content-Type | application/json; charset=utf-8 |
 
-### Response   
+**Response**
 
 | Property | Type| Description |
 |---|---|---|
@@ -679,7 +803,7 @@ InsuredPersons - Self
 
 
 <a name="InsuredVehicleUserData"></a>
-### Insured Vehicle Object
+**Insured Vehicle Object**
 
 | Property | Type| Description |
 |---|---|---|
@@ -914,7 +1038,7 @@ Log Entries OData
 | Authorize | Administrator  | 
 | Max Expansion Depth | 0 | 
 
-### Log Entry Object
+**Log Entry Object**
 
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
@@ -1017,7 +1141,7 @@ Notifications OData
 
 *Insured Person sees only notification addressed him / her. Administrator sees all notifications
 
-### Notification Object
+**Notification Object**
 
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
@@ -1028,7 +1152,7 @@ Notifications OData
 
 Normally Notification object is expanded with Notification Fields
 
-### Notification Fields Object
+**Notification Fields Object**
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
 |	Id	|	Int32	|	FALSE	|	Identity	|		|		|		|		|		|
@@ -1036,9 +1160,6 @@ Normally Notification object is expanded with Notification Fields
 |	Name	|	String	|	FALSE	|		|	50	|	FALSE	|	TRUE	|		|		|
 |	Value	|	String	|	FALSE	|		|	400	|	FALSE	|	TRUE	|		|		|
 
-Pages
------
-<span class="todo">FUTURE CHANGE: Not implemented</span>
 
 Password - User Exists
 --------
@@ -1413,6 +1534,7 @@ Policies - ChangeExpiryDate
 | Authorize | Administrator |
 | Response Content-Type | application/json; charset=utf-8 |
 | Response | HTTP status |
+| Response Codes | 200 OK or 400 Bad Request |
 
 **Request Parameters**
 
@@ -1426,8 +1548,6 @@ Policies - ChangeExpiryDate
 |---|---|---|---|
 | DateTimeOffset | Date | yes | Policy expiration date |   
 
-### Response 
-Status Code ( 200 OK or 400 Bad Request)
 
 Policies - ChangeStartDate
 ------------------
@@ -1438,6 +1558,7 @@ Policies - ChangeStartDate
 | Authorize | Administrator |
 | Response Content-Type | application/json; charset=utf-8 |
 | Response | HTTP status |
+| Response Codes | 200 OK or 400 Bad Request |
 
 **Request Parameters**
 
@@ -1450,9 +1571,6 @@ Policies - ChangeStartDate
 | Type | Name | Required| Description |
 |---|---|---|---|
 | DateTimeOffset | Date | yes | Policy start date |   
-
-### Response 
-Status Code ( 200 OK or 400 Bad Request)
 
 
 Policies - Renew
@@ -1555,6 +1673,7 @@ Policies - Reset
 | Authorize | Administrator |
 | Response Content-Type | application/json; charset=utf-8 |
 | Response | HTTP status |
+| Response Codes | 200 OK or 400 Bad Request |
 
 **Request Parameters**
 
@@ -1568,8 +1687,6 @@ Policies - Reset
 |---|---|---|---|
 | DateTimeOffset | Date | yes | Policy related PVU reset date |   
 
-### Response 
-Status Code ( 200 OK or 400 Bad Request)
 
 Policies - Transfer 
 ------------------
@@ -1824,7 +1941,7 @@ Policies OData
 | Authorize | Administrator  | 
 | Max Expansion Depth | 2 | 
 
-### Policy Object
+**Policy Object**
 
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
