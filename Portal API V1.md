@@ -9,7 +9,8 @@ All action names and "verbs" in this document is relevant to client (not server)
 
 Table of Contents
 ==========
-	
+<details>
+  <summary>Click to expand</summary>  	
  <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 - [Common information](#common-information)
@@ -91,7 +92,8 @@ Table of Contents
   - [RuleInstances - POST](#ruleinstances---post)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-	
+</details>
+
 Common information
 ==========
 
