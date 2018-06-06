@@ -1,8 +1,18 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+![Scope Technologies](https://cloud.githubusercontent.com/assets/3167692/9407536/cfc140b0-4812-11e5-96aa-21fa51a0cb0f.png)
 
-- [Portal API](#portal-api)
+Portal API
+==========
+
+To use Portal API properly developers must understand basic concept of OData.
+Check http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v4/ for OData tutorials.
+All action names and "verbs" in this document is relevant to client (not server).
+
+Table of Contents
+==========
+	
+ <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+- [Common information](#common-information)
   - [OData Navigation Properties](#odata-navigation-properties)
   - [PolicyVehicleUnit Concept](#policyvehicleunit-concept)
   - [Internalization](#internalization)
@@ -14,6 +24,7 @@
     - [DistanceUnits](#distanceunits)
     - [ServiceJobTypes](#servicejobtypes)
     - [ServiceJobStatuses](#servicejobstatuses)
+- [Contollers](#contollers)
   - [Account - Change Password](#account---change-password)
   - [Account - Change UserName](#account---change-username)
   - [Account - Register with Policy](#account---register-with-policy)
@@ -80,17 +91,9 @@
   - [RuleInstances - POST](#ruleinstances---post)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-![Scope Technologies](https://cloud.githubusercontent.com/assets/3167692/9407536/cfc140b0-4812-11e5-96aa-21fa51a0cb0f.png)
-
-Portal API
+	
+Common information
 ==========
-
-To use Portal API properly developers must understand basic concept of OData.
-Check http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v4/ for OData tutorials.
-
-All action names and "verbs" in this document is relevant to client (not server).
-
 
 OData Navigation Properties
 -------------
@@ -493,6 +496,9 @@ Following classifiers with localized descriptions can be retrieved via API:
 | URL | ~/api/Classifiers/ServiceJobStatuses |
 | Method | GET |
 | Authorize | Administrator, User |
+
+Contollers
+==========
 
 Account - Change Password
 -------
