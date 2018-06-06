@@ -2354,6 +2354,35 @@ Deletes a user-created place
 |---|---|
 | id | User Place ID  |
 
+RuleInstances - GET by id
+------------------
+Gets a rule instance by Id
+
+| **** | **** |
+|---|---|
+| URL |~/api/RuleInstances/{Id} |
+| Method | GET |
+| Authorize | Administrator, User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+| Response Codes | 200 - OK, 404 - Not Found |
+
+| Parameters |  |
+|---|---|
+| Id | Rule instance id |
+
+**Response Object** - RuleInstanceResponse
+
+| Type | Name | Description |
+|---|---|---|
+| int | Id | Rule instance id |
+| int | PolicyVehicleUnitId | PVU Id |
+| [RuleType](RuleType) | RuleType | Type of the rule f.e. "PlaceEntry" |
+| string | Params | Rule definition parameters that depends on RuleType  |
+| bool | IsPushRequired | If push notification to end-user device is requred  |
+| bool | IsEmailRequired | If email notification to end-user is requred  |
+| bool | IsRepeating | If email notification to end-user is requred  |
+| bool | IsEnabled | If email notification to end-user is requred  |
 
 RuleInstances - GET
 ------------------
@@ -2374,7 +2403,7 @@ Gets the list of rules, optionally filtered by ruleTypeId. If policyVehicleUnitI
 | policyVehicleUnitId | (optional) returns all rule instances created for that policyVehicleUnitId, regardless which user created them |
 
 
-**Response Object** - array of RuleInstanceItem
+**Response Object** - array of RuleInstanceResponse
 
 | Type | Name | Description |
 |---|---|---|
@@ -2388,7 +2417,7 @@ Gets the list of rules, optionally filtered by ruleTypeId. If policyVehicleUnitI
 | bool | IsEnabled | If email notification to end-user is requred  |
 
 ```
-Example of RuleInstanceItem
+Example of RuleInstanceResponse
 
  {
         "Id": 123,
@@ -2418,7 +2447,7 @@ Creates a rule instance of the specified rule type
 | Response | JSON object with created rule instance |
 | Response Codes | 200 - OK, 400 - Bad Request, 404 - Subscription Not Found |
 
-**Request Object** - object RuleInstance
+**Request Object**
 
 | Type | Name | Description |
 |---|---|---|
@@ -2490,11 +2519,11 @@ Parameters example for RuleTypes: ArriveInGivenTime = 6
 }
 ```
 	
-**Response Object** - object RuleInstanceResponse
+**Response Object** - RuleInstanceResponse
 
 | Type | Name | Description |
 |---|---|---|
-| int | Id | Rule Id |
+| int | Id | Rule instance id |
 | int | PolicyVehicleUnitId | PVU Id |
 | [RuleType](RuleType) | RuleType | Type of the rule f.e. "PlaceEntry" |
 | string | Params | Rule definition parameters that depends on RuleType |
@@ -2502,4 +2531,106 @@ Parameters example for RuleTypes: ArriveInGivenTime = 6
 | bool | IsEmailRequired | If email notification to end-user is requred  |
 | bool | IsRepeating | If email notification to end-user is requred  |
 | bool | IsEnabled | If email notification to end-user is requred  |
+
+RuleInstances - PATCH
+------------------
+Updates the properties of a rule instance
+
+| **** | **** |
+|---|---|
+| URL | ~/api/RuleInstances/{id} |
+| Method | PATCH |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+| Response Codes | 200 - OK, 404 - Not Found, 400 - Bad Request |
+
+| Parameters |  |
+|---|---|
+| id | Rule instance ID  |
+
+**Request Object**
+
+Same object as for POST
+
+**Response Object** 
+
+RuleInstanceResponse - same as for POST
+
+RuleInstances - DELETE
+------------------
+Deletes a rule instance by id
+
+| **** | **** |
+|---|---|
+| URL | ~/api/RuleInstances/{id} |
+| Method | DELETE |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response |  |
+| Response Codes | 204 - Ok (Deleted), 404 - Not Found |
+
+| Parameters |  |
+|---|---|
+| id | Rule instance id  |
+
+RuleInstances - GET Activations
+------------------
+Gets a list of all activations for the specified rule
+
+| **** | **** |
+|---|---|
+| URL | ~/api/RuleInstances/{id}/Activations |
+| Method | GET |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+| Response Codes | 204 - Ok, 404 - Not Found |
+
+| Parameters |  |
+|---|---|
+| id | Rule instance id   |
+
+
+**Response Object** - array of RuleInstanceActivation items
+
+| Type | Name | Description |
+|---|---|---|
+| int | RuleInstanceId | Rule instance id |
+| int | PolicyVehicleUnitId | PVU Id |
+| string | DeviceId | Mobile device id |
+| DateTimeOffset | ActivatedOn | Date and time of rule activation on mobile device |
+
+```
+Example of RuleInstanceActivation item:
+
+{
+	"RuleInstanceId": 1234,
+	"PolicyVehicleUnitId": 5678,
+	"DeviceId": "mobile-device-id",
+	"ActivatedOn": "2018-03-09T17:00:00+00:00"
+}
+
+```
+
+RuleInstances - MarkActivated
+------------------
+Marks the specified rule as activated on the specified device
+
+| **** | **** |
+|---|---|
+| URL | ~/api/RuleInstances/{id}/MarkActivated/{deviceId} |
+| Method | POST |
+| Authorize | User |
+| Response Content-Type | application/json; charset=utf-8 |
+| Response | JSON object |
+| Response Codes | 204 - Ok, 404 - Not Found |
+
+| Parameters | Description |
+|---|---|
+| id | Rule instance id (int)
+| deviceId | Mobile device id (string)
+
+**Response Object** - 
+Return RuleInstanceActivation item (see GET Activations)
 
