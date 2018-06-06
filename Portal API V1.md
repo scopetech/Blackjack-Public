@@ -83,7 +83,7 @@ Token
 -----
 Access to Portal API is controlled with Bearer Authentication. Client needs to obtain authentication token then add it to each request
 
-###Request
+### Request
 
 | **** | **** |
 |---|---|
@@ -97,7 +97,7 @@ Access to Portal API is controlled with Bearer Authentication. Client needs to o
 | UserName | Username to log in  |
 | Password | Password to log in, ensure sent password is "urlencoded" | 
 
-###Response
+### Response
 
 **Content-Type** application/json;charset=UTF-8 
 
@@ -358,7 +358,7 @@ Following classifiers with localized descriptions can be retrieved via API:
 | Description | Returns MotorTypes |
 | URL | ~/api/Classifiers/MotorTypes|
 | Method | GET |
-| Authorize | no authorization |
+| Authorize | Administrator, User |
 
 ### Colors
 
@@ -367,7 +367,7 @@ Following classifiers with localized descriptions can be retrieved via API:
 | Description | Returns vehicle colors|
 | URL | ~/api/Classifiers/Colors|
 | Method | GET |
-| Authorize | no authorization |
+| Authorize | Administrator, User |
 
 ### NotificationTypes
 
@@ -376,7 +376,34 @@ Following classifiers with localized descriptions can be retrieved via API:
 | Description | Returns Notification Types|
 | URL | ~/api/Classifiers/NotificationTypes|
 | Method | GET |
-| Authorize | no authorization |
+| Authorize | Administrator, User |
+
+### DistanceUnits
+
+| **** | **** |
+|---|---|
+| Description | Returns distance units|
+| URL | ~/api/Classifiers/DistanceUnits|
+| Method | GET |
+| Authorize | Administrator, User |
+
+### ServiceJobTypes
+
+| **** | **** |
+|---|---|
+| Description | Returns vehicle service & maintenance job types |
+| URL | ~/api/Classifiers/ServiceJobTypes |
+| Method | GET |
+| Authorize | Administrator, User |
+
+### ServiceJobStatuses
+
+| **** | **** |
+|---|---|
+| Description | Returns vehicle service & maintenance job statuses |
+| URL | ~/api/Classifiers/ServiceJobStatuses |
+| Method | GET |
+| Authorize | Administrator, User |
 
 Account - Change Password
 -------
@@ -395,7 +422,7 @@ Account - Change Password
     "confirmPassword":"NewP@ssw0rd" //required, must be same as "newPassword"
     }
 
-###Response 
+### Response 
 Status Code ( 200 OK or 500 Internal Server Error)
 
 Account - Change UserName
@@ -413,7 +440,7 @@ Account - Change UserName
 |---|---|---|---|
 | newName | string | yes | |
 
-###Response 
+### Response 
 Status Code ( 204 NoContent or 404 NotFound)
 
 Account - Register with Policy
@@ -507,7 +534,7 @@ Accidents OData
 | Authorize | Administrator  | 
 | Max Expansion Depth| 3 | 
 
-###Accident Object
+### Accident Object
 
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
@@ -533,7 +560,7 @@ Accidents OData
 
 CSV
 ---
-###Policy
+### Policy
 <span class="todo">FUTURE CHANGE: Pluralize name</span>
 
 | **** | **** |
@@ -544,7 +571,7 @@ CSV
 | Authorize | Administrator |
 | Response Content-Type | text/csv |
 
-###Trip
+### Trip
 <span class="todo">FUTURE CHANGE: Pluralize name</span>
 
 | **** | **** |
@@ -565,7 +592,7 @@ CSV
 
 <span class="todo">FUTURE CHANGE: Change parameters names</span> 
 
-###Accident
+### Accident
 <span class="todo">FUTURE CHANGE: Pluralize name</span>
 
 | **** | **** |
@@ -587,7 +614,7 @@ ECall - Send Accident information
 | Method | POST |
 | Authorize | Administrator | 
 
-###Request Payload Object Properties   
+### Request Payload Object Properties   
 
 | Property | Type| Required| Description |
 |---|---|---|---|
@@ -609,7 +636,7 @@ ECall - Send Accident information
 | MaxGForce | decimal | yes | |
 | PdfReport | byte[] | no | PDF Report will generated if empty field is received |
 
-###Response 
+### Response 
 Integer - PolicyVehicleUnit ID 
 
 Drivers
@@ -630,7 +657,7 @@ InsuredPersons - Self
 | Authorize | Insured Person |
 | Response Content-Type | application/json; charset=utf-8 |
 
-###Response   
+### Response   
 
 | Property | Type| Description |
 |---|---|---|
@@ -652,7 +679,7 @@ InsuredPersons - Self
 
 
 <a name="InsuredVehicleUserData"></a>
-###Insured Vehicle Object
+### Insured Vehicle Object
 
 | Property | Type| Description |
 |---|---|---|
@@ -887,7 +914,7 @@ Log Entries OData
 | Authorize | Administrator  | 
 | Max Expansion Depth | 0 | 
 
-###Log Entry Object
+### Log Entry Object
 
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
@@ -990,7 +1017,7 @@ Notifications OData
 
 *Insured Person sees only notification addressed him / her. Administrator sees all notifications
 
-###Notification Object
+### Notification Object
 
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
@@ -1001,7 +1028,7 @@ Notifications OData
 
 Normally Notification object is expanded with Notification Fields
 
-###Notification Fields Object
+### Notification Fields Object
 | Propety | Type | Nullable | Store Pattern | Max Length | Fixed Length | Unicode | Precision | Scale | Description |
 |---|---|---|---|---|---|---|---|---|---|
 |	Id	|	Int32	|	FALSE	|	Identity	|		|		|		|		|		|
@@ -1162,7 +1189,7 @@ Returns list of geofences defined in the system.
 | Response Content-Type | application/json; charset=utf-8 |
 | Response | Array of JSON objects |
 
-**Response Object (Item in the array) **
+**Response Object (Item in the array)**
 
 | Type | Name | Description |
 |---|---|---|
@@ -1186,7 +1213,7 @@ Returns numbers of policies of different types.
 | Response Content-Type | application/json; charset=utf-8 |
 | Response | JSON object |
 
-**Response Object **
+**Response Object**
 
 | Type | Name | Description |
 |---|---|---|
@@ -1311,7 +1338,7 @@ Policies - Add
 
 <span class="todo">FUTURE CHANGE: Make use of "Custom" parameter</span>
 
-**Response Object **
+**Response Object**
 
 | Type | Name | Description |
 |---|---|---|
@@ -1399,7 +1426,7 @@ Policies - ChangeExpiryDate
 |---|---|---|---|
 | DateTimeOffset | Date | yes | Policy expiration date |   
 
-###Response 
+### Response 
 Status Code ( 200 OK or 400 Bad Request)
 
 Policies - ChangeStartDate
@@ -1424,7 +1451,7 @@ Policies - ChangeStartDate
 |---|---|---|---|
 | DateTimeOffset | Date | yes | Policy start date |   
 
-###Response 
+### Response 
 Status Code ( 200 OK or 400 Bad Request)
 
 
@@ -1451,7 +1478,7 @@ Policies - Renew
 | string | NewNumber| yes | New unique policy number |    
 | DateTimeOffset | RenewDate| no | Date of renewal, current date is used if not passed |   
 
-**Response Object **
+**Response Object**
 
 | Type | Name | Description |
 |---|---|---|
@@ -1541,7 +1568,7 @@ Policies - Reset
 |---|---|---|---|
 | DateTimeOffset | Date | yes | Policy related PVU reset date |   
 
-###Response 
+### Response 
 Status Code ( 200 OK or 400 Bad Request)
 
 Policies - Transfer 
@@ -1580,7 +1607,7 @@ Policies - Transfer
 | int | Vehicle.YearOfInitialRegistration | yes | |
 | [MotorType](MotorType) | Vehicle.MotorType | | |  
 
-**Response Object **
+**Response Object**
 
 | Type | Name | Description |
 |---|---|---|
@@ -1660,7 +1687,7 @@ Policies - Replace
 | Response | JSON object with created policy data |
 
 
-** Request Object **
+**Request Object**
 
 | Type | Name | Required| Description |
 |---|---|---|---|
@@ -1671,7 +1698,7 @@ Policies - Replace
 
 <span class="todo">FUTURE CHANGE: Treat policy number in a same way for all Policy controller's Requests</span> 
 
-** Response Object **
+**Response Object**
 
 Empty
 
@@ -1689,7 +1716,7 @@ Policies - ChangeNumber
 | Response | HTTP Status Code |
 
 
-** Request Object **
+**Request Object**
 
 | Type | Name | Required| Description |
 |---|---|---|---|
@@ -1697,7 +1724,7 @@ Policies - ChangeNumber
 | string | NewNumber | yes | New policy number |        
 | bool | ChangeOnlyInPortal | false | Change only in Portal (Default: false) |
 
-** Response Object **
+**Response Object**
 
 Empty
 
@@ -1713,7 +1740,7 @@ Policies - ChangeCustomerNumber
 | Response | HTTP Status Code |
 
 
-** Request Object **
+**Request Object**
 
 | Type | Name | Required| Description |
 |---|---|---|---|
@@ -1721,7 +1748,7 @@ Policies - ChangeCustomerNumber
 | string | NewNumber | yes | New customer number |        
 | bool | ChangeOnlyInPortal | false | Change only in Portal (Default: false) |
 
-** Response Object **
+**Response Object**
 
 Empty
 
@@ -1757,7 +1784,7 @@ Policies - Revert Termination
 | Response Content-Type | application/json; charset=utf-8 |
 | Response | HTTP Status Code |
 
-Request Parameters
+**Request Parameters**
 
 | Name | Type | Required | Description |
 |---|---|---|---|
@@ -1778,7 +1805,7 @@ Policies - Amend
 | Response Content-Type | application/json; charset=utf-8 |
 | Response | HTTP Status Code |
 
-Request Parameters
+**Request Parameters**
 
 | Name | Type | Required | Description |
 |---|---|---|---|
@@ -1986,7 +2013,7 @@ Vehicles - ChangeVin
 | Response | HTTP Status Code |
 
 
-** Request Object **
+**Request Object**
 
 | Type | Name | Required| Description |
 |---|---|---|---|
@@ -1994,7 +2021,7 @@ Vehicles - ChangeVin
 | string | NewNumber | yes | New VIN number |        
 | bool | ChangeOnlyInPortal | false | Change only in Portal (Default: false) |
 
-** Response Object **
+**Response Object**
 
 Empty
 
