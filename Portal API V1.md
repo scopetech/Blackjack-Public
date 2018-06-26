@@ -1449,7 +1449,10 @@ Policies - Add
 |---|---|---|---|
 | string | Number | yes | Unique policy number |    
 | [DeviceType](DeviceType) | DeviceType | yes | |        
-| [DeliveryMethod](DeliveryMethod) | RequestedDeviceType | yes | |
+| [DeviceType](DeviceType) | RequestedDeviceType | yes | |
+| [DeliveryMethod](DeliveryMethod) | DeliveryMethod | yes | |
+| JSON Object | DeliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use |
+| string | TrackingNumber | | |
 | DateTimeOffset? | SignDate | | |
 | DateTimeOffset? | StartDate | | |
 | DateTimeOffset? | ExpirationDate | | |
@@ -1822,6 +1825,8 @@ Policies - Replace
 | string | PolicyNumber| yes | Policy number |    
 | [DeviceType](DeviceType) | DeviceType | yes | |        
 | [DeliveryMethod](DeliveryMethod) | DeliveryMethod | yes | |
+| JSON Object | DeliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use |
+| string | TrackingNumber | | |
 
 
 <span class="todo">FUTURE CHANGE: Treat policy number in a same way for all Policy controller's Requests</span> 
@@ -1940,7 +1945,8 @@ Policies - Amend
 | policyNumber | string | yes | Policy to update |
 | deviceType | [DeviceType](#classifiers-enumerations) | no | New required device type |
 | deliveryMethod | [DeliveryMethod](#classifiers-enumerations) | no | New delivery method |
-
+| JSON Object | deliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use |
+| string | trackingNo | | |
 
 Policies OData
 --------------
