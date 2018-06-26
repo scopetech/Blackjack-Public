@@ -1451,7 +1451,7 @@ Policies - Add
 | [DeviceType](DeviceType) | DeviceType | yes | |        
 | [DeviceType](DeviceType) | RequestedDeviceType | yes | |
 | [DeliveryMethod](DeliveryMethod) | DeliveryMethod | yes | |
-| JSON Object | DeliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use |
+| JSON Object | DeliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use, any fields can be added like Steet, Receiver etc. |
 | string | TrackingNumber | | |
 | DateTimeOffset? | SignDate | | |
 | DateTimeOffset? | StartDate | | |
@@ -1825,7 +1825,7 @@ Policies - Replace
 | string | PolicyNumber| yes | Policy number |    
 | [DeviceType](DeviceType) | DeviceType | yes | |        
 | [DeliveryMethod](DeliveryMethod) | DeliveryMethod | yes | |
-| JSON Object | DeliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use |
+| JSON Object | DeliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use, any fields can be added like Steet, Receiver etc. |
 | string | TrackingNumber | | |
 
 
@@ -1945,7 +1945,7 @@ Policies - Amend
 | policyNumber | string | yes | Policy to update |
 | deviceType | [DeviceType](#classifiers-enumerations) | no | New required device type |
 | deliveryMethod | [DeliveryMethod](#classifiers-enumerations) | no | New delivery method |
-| JSON Object | deliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use |
+| JSON Object | deliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use, any fields can be added like Steet, Receiver etc. |
 | string | trackingNo | | |
 
 Policies OData
