@@ -1567,7 +1567,7 @@ Policies - ChangeStartDate
 ------------------
 | **** | **** |
 |---|---|
-| URL | ~/api/Policies/ChangeStartDate |
+| URL | ~/api/Policies/ChangeStartDate/{number} |
 | Method | POST |
 | Authorize | Administrator |
 | Response Content-Type | application/json; charset=utf-8 |
