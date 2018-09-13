@@ -1945,8 +1945,8 @@ Policies - Amend
 | policyNumber | string | yes | Policy to update |
 | deviceType | [DeviceType](#classifiers-enumerations) | no | New required device type |
 | deliveryMethod | [DeliveryMethod](#classifiers-enumerations) | no | New delivery method |
-| JSON Object | deliveryAddress | | For MLogistics, JSON Object fields must be preconfigured before use, any fields can be added like Steet, Receiver etc. |
-| string | trackingNo | | |
+| deliveryAddress | JSON Object  | no | For MLogistics, JSON Object fields must be preconfigured before use, any fields can be added like Steet, Receiver etc. |
+| trackingNo | string | no | |
 
 Policies OData
 --------------
