@@ -2165,7 +2165,7 @@ Vehicles - OData Patch
 | **** | **** |
 |---|---|
 | Description | Update Vehicle data |
-| URL | ~/api/Vehicles |
+| URL | ~/odata/Vehicles(id) |
 | Method | PATCH |
 | Authorize | Administrator |
 | Response Content-Type | application/json; charset=utf-8 |
