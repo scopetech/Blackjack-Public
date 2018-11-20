@@ -561,8 +561,8 @@ Account - Register with Policy
 |---|---|---|---|
 | UserName | string | yes | |
 | Password | string | yes | |
-| PolicyOrCustomerNumber | string | yes | |
-| Reference | string | yes | |
+| Reference | string | yes | Policy or Customer Number |
+| SerialNumber | string | no | Required field if RegistrationConfigurationRequiresUnitNumber = true |
 | AgreementAccepted | bool | yes | |  
 
 **Response Object** 
