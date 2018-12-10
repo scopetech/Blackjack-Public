@@ -532,7 +532,7 @@ Account - Change UserName
 
 | **** | **** |
 |---|---|
-| URL | ~/api/Account/{oldName}/ChangePassword |
+| URL | ~/api/Account/{oldName}/ChangeUsername |
 | Method | Post |
 | Authorize | Administrator, User, Insured Person  | 
 | Response Codes | 204 NoContent or 404 NotFound |
