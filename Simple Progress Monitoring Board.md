@@ -1,4 +1,4 @@
-## Simple Progress Monitoring Board.md
+## Simple Progress Monitoring Board
 
 Trello Board consist of lists and cards. Cards can be marked with label and placed into list.
 
