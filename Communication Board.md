@@ -22,4 +22,4 @@ To provide visability on each question state we place each question in sepatrate
 1. Use Labels to identify question area, if needed
 1. Write initial question in card description
 1. Do not use card templates
-
+1. You can add a card to board to share some informatition, stating "Please familiarize your self with ...", flow is the same
