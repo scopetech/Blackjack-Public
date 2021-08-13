@@ -532,16 +532,14 @@ Account - Change UserName
 
 | **** | **** |
 |---|---|
-| URL | ~/api/Account/{oldName}/ChangeUsername |
+| URL | ~/api/Account/{oldName}/ChangeUserName |
 | Method | Post |
 | Authorize | Administrator  | 
 | Response Codes | 204 NoContent or 404 NotFound |
 
-**Request Payload Properties**
+**Request Payload**
 
-| Property | Type| Required| Description |
-|---|---|---|---|
-| newName | string | yes | |
+New username should be set as payload f.e. "newname@test.com"
 
 
 Account - Register with Policy
