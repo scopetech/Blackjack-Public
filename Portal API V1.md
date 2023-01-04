@@ -17,12 +17,6 @@ Table of Contents
   - [Internalization](#internalization)
   - [Token](#token)
   - [Classifiers (Enumerations)](#classifiers-enumerations)
-    - [MotorTypes](#motortypes)
-    - [Colors](#colors)
-    - [NotificationTypes](#notificationtypes)
-    - [DistanceUnits](#distanceunits)
-    - [ServiceJobTypes](#servicejobtypes)
-    - [ServiceJobStatuses](#servicejobstatuses)
 - [Contollers](#contollers)
   - [Account - Change Password](#account---change-password)
   - [Account - Change UserName](#account---change-username)
@@ -262,7 +256,10 @@ Following classifiers (enumerations) is used by the systems:
         MHubBattery = 2, // connects to Battery
         Soft = 3, // Software typically installed on Mobile phone, acting as an MHub
         ThirdParty = 4,
-        Virtual = 5 // Trips recorded on multiple devices
+        Virtual = 5, // Trips recorded on multiple devices
+        Teltonika = 40,
+        TeltonikaObd = 41,
+        TeltonikaBattery = 42
     }
 
 <a name="MotorType"></a>
@@ -287,48 +284,76 @@ Following classifiers (enumerations) is used by the systems:
     /// </summary>
     public enum NotificationType
     {
-        ContactForm = 1,
+         ContactForm = 1,
         RegistrationRequest = 2,
         RegistrationCompleted = 3,
-        FirstOverdue = 4,
-        SecondOverdue = 5,
-        ThirdOverdue = 6,
         ResetPassword = 7,
-        GeneratedPassword = 8,
-        FirstTripCompletion = 9, //MLog
-        PluggedOut = 10, //MLog
-        PluggedIn = 11, //MLog
-        DifferentVehicleIdentified = 12, //MLog
-        NeverReported = 13,
-        NotReporting = 14, //MLog
-        NoImAlive = 15,
-        DeviceToBeReturned = 16, //MLog
-        DeviceReturned = 17, //MLog
+        FirstTripCompletion = 9, // from MLog
+        PluggedOut = 10, // from MLog
+        PluggedIn = 11, // from MLog
+        DifferentVehicleIdentified = 12, // from MLog
+        NotReporting = 14, // from MLog
+        DeviceToBeReturned = 16,// from MLog
+        DeviceReturned = 17, // from MLog
         ShareInvitation = 18,
-        PolicyRenewal = 19,
         UnitTransfer = 20,
         OutOfArea = 21,
         FirstTripInvitation = 24,
         ShareAccepted = 25,
-        RegularServiceDue = 26,
-        DiagnosticTroubleCodeReceived = 27,
-        ServiceBooked = 28,
-        BookingRescheduled = 29,
-        BookingCanceled = 30,
-        BookingReminder = 31,
         GroupMessage = 32,
-        TrialFinished = 33,
+        TrialFinishedSuccess = 33,
         TestEmail = 34,
-        TestPushNotification = 35,
         StageTwoUnitReceived = 36,
-        DeviceStoppedReporting = 37, //MLog
-	TokenEmail = 38,
-	GamificationSummaryForPeriod = 39,
-        RuleInstanceNotification = 40,
-        RuleInstanceUpdateCommandNotification = 41,
+        DeviceStoppedReporting = 37, // from MLog
+        TokenEmail = 38,
         HeritageWelcome = 42,
         HeritageMidTrial = 43,
         HeritageEndTrial = 44,
+        PolicyCreation = 45,
+        TrialFinishedFail = 47,
+        ReportCreatedForGlobalScore = 48,
+        ReportCreatedForTrialRegistrationStatus = 49,
+        SharePersonInvitation = 51,
+        POIArriveInGivenTime = 52,
+        POIDoNotEnterPlace = 53,
+        POIDoNotExitPlace = 54,
+        POIMustLeaveByTimeRange = 55,
+        POIPlaceEntry = 56,
+        POIPlaceExit = 57,
+        ServiceReminder = 58,
+        PaymentReminder = 59,
+        ImsReport = 60,
+        VehicleMaintenanceMessageReceived = 61,
+        NeverLogin = 62,
+        ReportCreatedForDrpAssociations = 63,
+        GZoneRoundStarted = 64,
+        GZoneRoundCompleted = 65,
+        BeaconNotReporting = 66,
+        ExitProgram = 67,
+        LeasePlanOrderStatusUpdate = 68,
+        PolicyTerminated = 69,
+        AutomaticShareAccepted = 70,
+        BeaconRequested = 71,
+        BeaconSent = 72,
+        BeaconPaired = 73,
+        PolicyExpiresSoon = 74,
+        SocialConnectionRequestToKnownUser = 75,
+        SocialConnectionRequestToUnknownUser = 76,
+        SocialConnectionRequestAccepted = 77,
+        SocialConnectionRequestRejected = 78,
+        SocialConnectionDeactivated = 79,
+        UnitDispatched = 80,
+        GdprCopyRequested = 81,
+        GdprDeletionRequested = 82,
+        GdprChangeRequested = 83,
+        ConsentGranted = 84,
+        ConsentRevoked = 85,
+        MacifObdSpecificPolicyCreated = 86,
+        TripConflictReported = 87,
+        DeviceTypeChangeInProgress = 88,
+        GZoneRoundProgress = 89,
+        GZoneExternal = 90,
+        InviteCodeSent = 91
     }    
 
 <a name="MLogNotificationMapping">MLog Notification Mapping</a>
@@ -483,23 +508,6 @@ Following classifiers with localized descriptions can be retrieved via API:
 | Method | GET |
 | Authorize | Administrator, User |
 
-### ServiceJobTypes
-
-| **** | **** |
-|---|---|
-| Description | Returns vehicle service & maintenance job types |
-| URL | ~/api/Classifiers/ServiceJobTypes |
-| Method | GET |
-| Authorize | Administrator, User |
-
-### ServiceJobStatuses
-
-| **** | **** |
-|---|---|
-| Description | Returns vehicle service & maintenance job statuses |
-| URL | ~/api/Classifiers/ServiceJobStatuses |
-| Method | GET |
-| Authorize | Administrator, User |
 
 Contollers
 ==========
