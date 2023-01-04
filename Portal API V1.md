@@ -358,26 +358,28 @@ Following classifiers (enumerations) is used by the systems:
 
 <a name="MLogNotificationMapping">MLog Notification Mapping</a>
 
-                case NotificationTemplateType.FirstTripEndEvent -> NotificationType.FirstTripCompletion;
-                case NotificationTemplateType.UnitPlugoutEvent -> NotificationType.PluggedOut;
-                case NotificationTemplateType.UnitPluginEvent -> NotificationType.PluggedIn;
-                case NotificationTemplateType.VehicleSignatureEvent -> NotificationType.DifferentVehicleIdentified;
-                case NotificationTemplateType.UnitDispatchedNoTripEnd -> NotificationType.NotReporting;
-                case NotificationTemplateType.UnitUninstalledNotReceivedNotificationTypeNotificationType  -> otificationType.DeviceToBeReturned;
-                case NotificationTemplateType.UnitReceivedFromCustomer -> NotificationTypeNotificationType.DeviceReturned;
-                case NotificationTemplateType.UnitStoppedReporting -> NotificationType.DeviceStoppedReporting;
+    - FirstTripEndEvent -> NotificationType.FirstTripCompletion;
+    - UnitPlugoutEvent -> NotificationType.PluggedOut;
+    - UnitPluginEvent -> NotificationType.PluggedIn;
+    - VehicleSignatureEvent -> NotificationType.DifferentVehicleIdentified;
+    - UnitDispatchedNoTripEnd -> NotificationType.NotReporting;
+    - UnitUninstalledNotReceivedNotificationTypeNotificationType  -> otificationType.DeviceToBeReturned;
+    - UnitReceivedFromCustomer -> NotificationTypeNotificationType.DeviceReturned;
+    - UnitStoppedReporting -> NotificationType.DeviceStoppedReporting;
+	- BeaconDispatchedNoTripEnd -> NotificationType.BeaconNotReporting;
+	- UnitDispatched -> NotificationType.UnitDispatched;
+    - AccessoryDispatched -> NotificationType.BeaconSent;
 
-
-
-<a name="Permissions"></a>
+<a name="VehiclePermissions"></a>
   
     /// <summary>
     /// User's vehicle access permissions
     /// </summary>
     [Flags]
-    public enum Permissions
+    public enum VehiclePermissions
     {
-        View = 0x0001, 
+        Undefined = 0x0000,
+        View = 0x0001,
         Edit = 0x0002,
         Share = 0x0004
     }
@@ -385,17 +387,19 @@ Following classifiers (enumerations) is used by the systems:
 <a name="PolicyStatus"></a>
        
     /// <summary>
-    /// Policy Status
+    /// Policy Status OBSOLETE
     /// </summary>
+    [Flags]
     public enum PolicyStatus
     {
-        Ordered = 1,
-        Shipped = 2,
-        Registered = 3,
-        Activated = 4,
-        ActivatedAndRegistered = 5,
-        Deactivated = 6
-    }    
+        Deactivated = 1,
+        Ordered = 2,
+        Shipped = 4,
+        Activated = 8,
+        ActivatedAndRegistered = 16,
+        Registered = 32,
+        Exist = 64,
+    }
 
 <a name="UserAction"></a>
          
