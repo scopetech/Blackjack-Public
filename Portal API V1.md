@@ -1,7 +1,6 @@
-![Scope Technologies](https://cloud.githubusercontent.com/assets/3167692/9407536/cfc140b0-4812-11e5-96aa-21fa51a0cb0f.png)
-
-Portal API
+![Scope Technology](https://user-images.githubusercontent.com/8857319/210592148-477e0d81-4eff-465f-993e-6783c672e344.png)
 ==========
+
 
 To use Portal API properly developers must understand basic concept of OData.
 Check http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v4/ for OData tutorials.
