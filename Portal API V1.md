@@ -1082,7 +1082,7 @@ Returns all notifications which were created for authenticated user since last c
 
 | **** | **** |
 |---|---|
-| URL | ~/api/Notifications/Feedback |
+| URL | ~/api/Notifications/Active |
 | Method | GET |
 | Authorize | Insured Person |
 | Response Content-Type | application/json; charset=utf-8 |
